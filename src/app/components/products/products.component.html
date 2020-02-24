@@ -1,0 +1,24 @@
+<mat-card *ngFor="let item of products">
+    <mat-card-subtitle>
+           {{item.title}}         
+    </mat-card-subtitle>
+    
+    <img [attr.scr]="item.thumbnailUrl" mat-card-image >
+
+    <mat-card-content>
+        <p>ID: {{item.id}}</p>
+  
+    </mat-card-content>
+    
+    <mat-card-actions>
+            <a mat-button mat-raised-button
+            color="primary"
+            target="_blank"
+            [attr.href]="item.url">
+            view Img
+            </a>
+    </mat-card-actions>
+
+    
+    
+</mat-card>

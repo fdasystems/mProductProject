@@ -1,13 +1,15 @@
+<div class="content" role="main">
 <mat-card *ngFor="let item of products">
-    <mat-card-subtitle>
-           {{item.title}}         
-    </mat-card-subtitle>
-    
-    <img [attr.scr]="item.thumbnailUrl" mat-card-image >
 
-    <mat-card-content>
+    <mat-card-title>
         <p>ID: {{item.id}}</p>
-  
+    </mat-card-title>    
+   <mat-card-subtitle>
+           {{item.title}}         
+    </mat-card-subtitle>   
+    <mat-card-content>
+        <img [attr.scr]="item.thumbnailUrl"   mat-card-image >
+        <img scr="https://d500.epimg.net/cincodias/imagenes/2018/11/13/lifestyle/1542113135_776401_1542116070_noticia_normal.jpg">
     </mat-card-content>
     
     <mat-card-actions>
@@ -18,7 +20,6 @@
             view Img
             </a>
     </mat-card-actions>
-
-    
-    
+   
 </mat-card>
+</div>

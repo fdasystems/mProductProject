@@ -4,9 +4,3 @@ margin-top: 2rem;
 text-align: center;
 }
 
-mat-card, app-products{
-    margin: auto ;
-    width: 80%;
-    display: block;
-    margin-top: 1rem;
-}

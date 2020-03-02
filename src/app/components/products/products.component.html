@@ -9,7 +9,17 @@
     </mat-card-subtitle>   
     <mat-card-content>
         <img [attr.scr]="item.thumbnailUrl"   mat-card-image >
+        test img static 1
         <img scr="https://d500.epimg.net/cincodias/imagenes/2018/11/13/lifestyle/1542113135_776401_1542116070_noticia_normal.jpg">
+    
+        test img static 2
+        <img src="https://dam.ngenespanol.com/wp-content/uploads/2019/03/luna-colores-nuevo.png" alt=""> 
+    
+        test img static 3
+        <img src="https://via.placeholder.com/150/24f355" alt="">
+        test img dinamic 4
+        <img [attr.scr]="item.thumbnailUrl"   mat-card-image >
+    
     </mat-card-content>
     
     <mat-card-actions>

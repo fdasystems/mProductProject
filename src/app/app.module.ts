@@ -11,13 +11,14 @@ import { ProductsComponent } from './components/products/products.component';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent, 
-    ToolbarComponent, DashboardComponent
+    ToolbarComponent, DashboardComponent, FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SiSistemasDEMOModelStoreContainer" CdmEntityContainer="SiSistemasWebEntities">
+    <EntitySetMapping Name="Precios">
+      <EntityTypeMapping TypeName="SiSistemasDEMOModel.Precios">
+        <MappingFragment StoreEntitySet="Precios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FAlta" ColumnName="FAlta" />
+          <ScalarProperty Name="FBaja" ColumnName="FBaja" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+          <ScalarProperty Name="Utilidad" ColumnName="Utilidad" />
+          <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+          <ScalarProperty Name="Tarjeta" ColumnName="Tarjeta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="SiSistemasDEMOModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FAlta" ColumnName="FAlta" />
+          <ScalarProperty Name="FBaja" ColumnName="FBaja" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="RutaImagen" ColumnName="RutaImagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="SiSistemasDEMOModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FAlta" ColumnName="FAlta" />
+          <ScalarProperty Name="FBaja" ColumnName="FBaja" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

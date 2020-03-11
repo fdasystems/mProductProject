@@ -1,15 +1,47 @@
 <div class="content" role="main">
+ <!--   Id?: number;
+    Codigo: string;
+    Nombre: string;
+    Descripcion: string;
+    RutaImagen: string;
+    PrecioVenta: number
+-->
 <mat-card *ngFor="let item of products">
 
     <mat-card-title>
-        <p>ID: {{item.id}}</p>
+        <p>Código: {{item.Codigo}}</p>
     </mat-card-title>    
    <mat-card-subtitle>
-           {{item.title}}         
+            {{item.Nombre}}     
     </mat-card-subtitle>   
     <mat-card-content>
-        <img src="{{item.thumbnailUrl}}"  height="70" width="95" > 
-        <img src="http://www.sisistemas.com.ar/web2/productos/01103905.png"  height="70" width="95" >
+
+        <table table>
+            <thead>
+                <tr>
+                    <td>Foto</td>
+                    <td></td>
+                    <td>Descripción</td>
+                    <td></td>
+                    <td>Precio De Venta</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="{{item.RutaImagen}}"  height="70" width="95" > 
+                    </td>
+                    <td>¨</td>
+                    <td>
+                         <p>{{item.Descripcion}}</p> 
+                    </td>
+                    <td>¨</td>
+                    <td>
+                         <p>$ {{item.Precios["0"].PrecioVenta}}</p> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </mat-card-content>
     
     <mat-card-actions>

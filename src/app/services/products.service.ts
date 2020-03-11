@@ -12,7 +12,7 @@ export class ProductsService {
   getData(){
     //var urlService='https://jsonplaceholder.typicode.com/photos?_limit=25';
     var urlService='http://localhost:61504/api/productos';
-    return this.http.get<Product[]>(urlService);    
+    return this.http.get<Product[]>(urlService);   //SOLO FALTA ACOMODAR EL RESULT AL OBJETO ESPERADO 
   }
 
 }

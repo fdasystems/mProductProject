@@ -10,7 +10,8 @@ export class ProductsService {
   constructor( private http: HttpClient) { }
 
   getData(){
-    var urlService='https://jsonplaceholder.typicode.com/photos?_limit=25';
+    //var urlService='https://jsonplaceholder.typicode.com/photos?_limit=25';
+    var urlService='http://localhost:61504/api/productos';
     return this.http.get<Product[]>(urlService);    
   }
 

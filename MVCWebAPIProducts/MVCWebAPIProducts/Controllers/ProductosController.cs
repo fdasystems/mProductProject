@@ -22,6 +22,17 @@ namespace MVCWebAPIProducts.Controllers
             return db.Productos.Include(x => x.Precios);
         }
 
+        [ResponseType(typeof(Productos))]
+        public IQueryable<Productos> GetProductosPagination(int numberPage, int takeCount)
+        {
+
+            return db.Productos.Include(x => x.Precios).OrderBy(x=> x.Id)
+                .Skip((numberPage-1)*takeCount)
+                .Take(takeCount);
+        }
+
+
+
         // GET: api/Productos/5
         [ResponseType(typeof(Productos))]
         public IHttpActionResult GetProductos(int id)

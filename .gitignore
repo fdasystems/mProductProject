@@ -1,13 +1,48 @@
 MVCWebAPIProducts/MVCWebAPIProducts/obj/
 MVCWebAPIProducts/MVCWebAPIProducts/bin/
-# compiled output
+
+#compiled output
 /dist
 /tmp
-/out-tsc
+/outtsc
 # Only exists if Bazel was run
-/bazel-out
+/bazelout
 
 # dependencies
 /node_modules
 
 # profiling files
+chromeprofilerevents*.json
+speedmeasureplugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublimeworkspace
+
+# IDE  VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sasscache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npmdebug.log
+yarnerror.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+

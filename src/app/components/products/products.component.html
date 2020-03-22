@@ -6,6 +6,103 @@
     RutaImagen: string;
     PrecioVenta: number
 -->
+
+<mat-table [dataSource]="listData" >
+  
+    <!-- Position Column *ngIf="loadOK"-->
+    <ng-container matColumnDef="Id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Id}} </mat-cell>
+    </ng-container>
+      
+
+    <!-- Codigo Column -->
+    <ng-container matColumnDef="Codigo">
+        <mat-header-cell *matHeaderCellDef> Codigo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Codigo}} </mat-cell>
+    </ng-container>
+
+
+    <!-- Nombre Column-->
+    <ng-container matColumnDef="Nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Nombre}} </mat-cell>
+    </ng-container>
+
+    <!-- Descripcion Column -->
+    <ng-container matColumnDef="Descripcion">
+        <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Descripcion}} </mat-cell>
+    </ng-container>
+
+    <!-- RutaImagen Column-->
+    <ng-container matColumnDef="RutaImagen">
+        <mat-header-cell *matHeaderCellDef> RutaImagen </mat-header-cell>
+        <mat-cell *matCellDef="let element">  <img src="{{element.RutaImagen}}"  height="70" width="95" >  </mat-cell>
+    </ng-container>
+
+    <!-- RutaImagen Column-->
+    <ng-container matColumnDef="PrecioVenta">
+        <mat-header-cell *matHeaderCellDef> PrecioVenta </mat-header-cell>
+        <mat-cell *matCellDef="let element"> $ {{element.Precios["0"].PrecioVenta}} </mat-cell>
+    </ng-container>
+
+    <!-- URL-EMAIL Column
+    <ng-container matColumnDef="actionsColumn">
+        <mat-header-cell *matHeaderCellDef>
+            <button >Create new</button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button >Edit</button>
+            <button >Cancel</button>
+        </mat-cell>
+    </ng-container>-->
+    
+<!-- Columna de contacto --refrescar siempre  -->  
+    <ng-container matColumnDef="urlEmail">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">     <a mat-button mat-raised-button
+            color="primary"
+            target="_blank"
+            href="http://www.fdas.com.ar">
+              ¡Lo Quiero!
+            </a> </mat-cell>
+    </ng-container>
+
+
+
+    <!-- Loading data-->
+    <ng-container matColumnDef="loading">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+            ...Cargando datos...
+        </mat-footer-cell>
+    </ng-container>
+
+
+     <!-- No data-->
+     <ng-container matColumnDef="nodata">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+            Sin registros para mostrar.
+        </mat-footer-cell>
+    </ng-container>   
+
+    <!-- Codigo Column 
+    <ng-container matColumnDef="Codigo">
+        <th mat-header-cell *matHeaderCellDef> Codigo </th>
+        <td mat-cell *matCellDef="let element"> {{element.Codigo}} </td>
+    </ng-container>
+  -->    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':(listData!=null || listData==undefined  ) }" ></mat-footer-row>
+      <mat-footer-row *matFooterRowDef="['nodata']" [ngClass]="{'hide':((!(listData!=null && listData.data.length==0)) || listData==null || listData==undefined )}" ></mat-footer-row>
+                                                                    <!-- && (!listData==undefined) || !loadOK -->
+  </mat-table>
+<mat-paginator  [pageSize]="5" showFirstLastButtons itemsPerPageLabel="Items por página" ></mat-paginator>
+<!--[pageSizeOptions]="[5]"-->
+
+
+
 <mat-card *ngFor="let item of products">
 
     <mat-card-title>

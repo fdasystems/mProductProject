@@ -95,9 +95,9 @@
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':(listData!=null || listData==undefined  ) }" ></mat-footer-row>
-      <mat-footer-row *matFooterRowDef="['nodata']" [ngClass]="{'hide':((!(listData!=null && listData.data.length==0)) || listData==null || listData==undefined )}" ></mat-footer-row>
-                                                                <!-- && (!listData==undefined) || !loadOK -->
+      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':(listData!=null  ) }" ></mat-footer-row>
+      <mat-footer-row *matFooterRowDef="['nodata']" [ngClass]="{'hide':((!(listData!=null && listData.data.length==0)) )}" ></mat-footer-row>
+                                                                <!--|| listData==undefined  && (!listData==undefined) || !loadOK || listData!=null || listData!=undefined -->
   </mat-table>
 
 

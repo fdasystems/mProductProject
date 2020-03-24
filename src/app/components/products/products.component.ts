@@ -103,18 +103,19 @@ export class ProductsComponent implements OnInit {
         });
   }
 
-  /* ...Tengo que setear post llamado para no perder el enlace...
+  /* ...sol. int. post llamado para no perder el enlace... pero lanza error de consola comment
   ngAfterViewInit() {
     this.listData.paginator = this.paginator1;
   }*/
 
+  //normal direct call
   pageChanged(event: PageEvent) {
     console.log(event);
     this.paginationService.change(event);
     this.getAllProducts('pageChanged');
   } 
 
-  /* */
+  /* Call with Event */
   switchPage(event: PageEvent) {
     this.paginationService.change(event);
     this.getAllProducts('switchPage');

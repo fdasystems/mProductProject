@@ -15,7 +15,7 @@ using System.Web.Http.Cors;
 namespace MVCWebAPIProducts.Controllers
 {
     //   [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Pagination")]
+    [EnableCors(origins: "http://fdasystems.github.io, http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "X-Pagination")]
     public class ProductosController : ApiController
     {
         private SiSistemasWebEntities db = new SiSistemasWebEntities();

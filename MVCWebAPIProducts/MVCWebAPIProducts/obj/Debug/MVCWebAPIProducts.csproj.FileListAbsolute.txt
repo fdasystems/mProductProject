@@ -20,7 +20,9 @@ C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebA
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Microsoft.Web.Infrastructure.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Newtonsoft.Json.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Net.Http.Formatting.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Cors.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Helpers.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Http.Cors.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Http.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Http.WebHost.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Mvc.dll
@@ -33,10 +35,11 @@ C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebA
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\EntityFramework.xml
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\EntityFramework.SqlServer.xml
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Newtonsoft.Json.xml
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Net.Http.Formatting.xml
-C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Helpers.xml
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Http.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Http.Cors.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Newtonsoft.Json.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Helpers.xml
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Http.WebHost.xml
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Mvc.xml
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Web.Optimization.xml

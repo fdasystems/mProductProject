@@ -25,7 +25,22 @@ mat-card, app-products{
     display: none;
 }
 
+.specialCenter
+{
+    justify-content: center;
+}
+
+.mat-paginator.paginator--centered {
+    display: flex;
+    justify-content: center;
+  } 
+
 /*mat-table*/
+mat-table
+{
+    width: 88%;
+}
+
 mat-footer-row mat-footer-cell
 {
     justify-content: center;

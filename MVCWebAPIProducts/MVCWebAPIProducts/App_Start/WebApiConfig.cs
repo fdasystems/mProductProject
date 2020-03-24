@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace MVCWebAPIProducts
 {
@@ -10,6 +11,10 @@ namespace MVCWebAPIProducts
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.EnableCors();
+
+          //  config.EnableCors(new EnableCorsAttribute(Properties.Settings.Default.Cors, "", ""));
+          //  app.UseCors(CorsOptions.AllowAll);
 
             // Web API routes
             config.MapHttpAttributeRoutes();

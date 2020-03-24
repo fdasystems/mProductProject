@@ -8,7 +8,7 @@
 -->
 
 <mat-table [dataSource]="listData" >
-  
+
     <!-- Position Column *ngIf="loadOK"-->
     <ng-container matColumnDef="Id">
         <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
@@ -37,7 +37,7 @@
 
     <!-- RutaImagen Column-->
     <ng-container matColumnDef="RutaImagen">
-        <mat-header-cell *matHeaderCellDef> RutaImagen </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Foto </mat-header-cell>
         <mat-cell *matCellDef="let element">  <img src="{{element.RutaImagen}}"  height="70" width="95" >  </mat-cell>
     </ng-container>
 
@@ -92,14 +92,30 @@
         <td mat-cell *matCellDef="let element"> {{element.Codigo}} </td>
     </ng-container>
   -->    
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':(listData!=null || listData==undefined  ) }" ></mat-footer-row>
       <mat-footer-row *matFooterRowDef="['nodata']" [ngClass]="{'hide':((!(listData!=null && listData.data.length==0)) || listData==null || listData==undefined )}" ></mat-footer-row>
-                                                                    <!-- && (!listData==undefined) || !loadOK -->
+                                                                <!-- && (!listData==undefined) || !loadOK -->
   </mat-table>
-<mat-paginator  [pageSize]="5" showFirstLastButtons itemsPerPageLabel="Items por página" ></mat-paginator>
-<!--[pageSizeOptions]="[5]"-->
+
+
+
+<mat-card  >
+    <mat-card-title  >
+        <mat-paginator #paginator1
+        [length]="totalCount"
+        [pageSize]="paginationService.pageSize"
+        [pageSizeOptions]="paginationService.selectItemsPerPage" 
+        (page)="pageChanged($event)" 
+      
+         showFirstLastButtons class="paginator--centered" >
+        </mat-paginator>
+        <!--  [pageSize]="5"      (page)="onPageSwitch.emit($event)"              then==>[pageSizeOptions]="[5]"  itemsPerPageLabel .. -->
+    </mat-card-title>
+</mat-card>
+
 
 
 

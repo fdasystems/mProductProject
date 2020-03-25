@@ -5,7 +5,30 @@
     Descripcion: string;
     RutaImagen: string;
     PrecioVenta: number
+   <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+<div style="width:10px !important"></div>
+
+style="width:500px !important; justify-content: center !important;"
+ disabled="(searchKey.length==0)"  [(ngDisabled)]="disableSearch()"
 -->
+
+<!--Inicio de busqueda-->
+<mat-card style="justify-content: center !important;" >
+    <mat-card-title>   </mat-card-title>        
+    <mat-card-subtitle>    </mat-card-subtitle>
+    <mat-card-content> 
+                <mat-form-field class="search-form-field"  [style.width.%]="90" style="margin-left: 2rem !important;"  > 
+                    <input matInput [(ngModel)]="searchKey" placeholder="Buscar..." autocomplete="off" name="searchKey" >  
+                    <button mat-raised-button matSuffix (click)="searching()" [disabled]="!searchKey" > <mat-icon>search</mat-icon> Buscar </button>
+                </mat-form-field>
+
+                <button mat-button matSuffix mat-icon-button aria-label="Limpiar" (click)="refreshing()"><mat-icon>loop</mat-icon> </button>
+    </mat-card-content>
+</mat-card>
+<!--Fin de busqueda-->
 
 <mat-table [dataSource]="listData" class="mat-elevation-z8" >
 
@@ -118,6 +141,7 @@
 
 
 <!-- 
+
 
 
 <mat-card *ngFor="let item of products">

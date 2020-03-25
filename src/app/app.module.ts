@@ -16,20 +16,24 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomPaginator } from './CustomPaginatorConfiguration';
 import { PaginationService } from './services/pagination.service';
-//import { PaginationService } from './services/pagination.service';
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent, 
-    ToolbarComponent, DashboardComponent, FooterComponent  
+    ToolbarComponent, DashboardComponent, FooterComponent, SearchComponent  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule 
+    HttpClientModule,
+    FormsModule 
   ],
   providers: [PaginationService, {provide: MatPaginatorIntl, useValue: CustomPaginator()}],
   bootstrap: [AppComponent]

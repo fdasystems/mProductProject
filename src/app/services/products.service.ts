@@ -17,12 +17,21 @@ export class ProductsService {
     //var urlService='http://localhost:61504/api/productos';
     //var urlService='http://localhost:61504/api/productos?numberPage=1&takeCount=8';
    
-   
     const mergedUrl = `${this.urlService}` +
             `?numberPage=${this.paginationService.page}&takeCount=${this.paginationService.pageSize}`;  // .pageCount
 
    // return this.http.get<Product[]>(mergedUrl);   //SOLO FALTA ACOMODAR EL RESULT AL OBJETO ESPERADO
     return this.http.get<any>(mergedUrl, {observe:'response'}); 
   }
+
+
+  //Búsqueda por clave (en principio solo codigo)
+  getFilteredData(searchKey){   
+    const mergedUrl = `${this.urlService}` +
+            `?numberPage=${this.paginationService.page}&takeCount=${this.paginationService.pageSize}&searchTerms=${searchKey}`;
+
+    return this.http.get<any>(mergedUrl, {observe:'response'}); 
+  }
+
 
 }

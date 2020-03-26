@@ -53,6 +53,6 @@ C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebA
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Microsoft.Azure.AppService.ApiApps.Service.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.IdentityModel.Tokens.Jwt.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.IdentityModel.Tokens.Jwt.xml
-C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\obj\Debug\MVCWebAPIProducts.csprojAssemblyReference.cache
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\obj\Debug\MVCWebAPIProducts.csproj.CoreCompileInputs.cache
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\obj\Debug\MVCWebAPIProducts.csproj.CopyComplete
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\obj\Debug\MVCWebAPIProducts.csprojAssemblyReference.cache

@@ -8,7 +8,10 @@ import { PaginationService } from './pagination.service';
 })
 export class ProductsService {
 
-  private urlService='http://localhost:61504/api/productos';
+
+  private baseUrl='http://webapimpp.azurewebsites.net/';
+ // private baseUrl='http://localhost:61504/';
+ private urlService=this.baseUrl+'api/productos';
   
   constructor( private http: HttpClient, private paginationService: PaginationService) { }
 

@@ -1,5 +1,7 @@
-MVCWebAPIProducts/MVCWebAPIProducts/obj/
-MVCWebAPIProducts/MVCWebAPIProducts/bin/
+#MVCWebAPIProducts/MVCWebAPIProducts/obj/
+/obj
+#MVCWebAPIProducts/MVCWebAPIProducts/bin/
+/bin
 
 #compiled output
 /dist

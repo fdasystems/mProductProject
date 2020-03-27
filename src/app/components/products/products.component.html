@@ -90,14 +90,20 @@ style="width:500px !important; justify-content: center !important;"
             href="http://www.fdas.com.ar">
               ¡Lo Quiero!
             </a> </mat-cell>
-    </ng-container>
+    </ng-container> 
   -->  
 
+  <!--  funciona pero no tiene el dato que me interesa: {{element.Id}} 
   <ng-container matColumnDef="urlEmail">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell *matCellDef="let element">
-        <button mat-button  mat-raised-button    color="primary"    (click)="openDialog()">¡Lo Quiero!</button>
+        <button mat-button  mat-raised-button    color="primary"    (click)="openDialog($element)">¡Lo Quiero!</button>
     </mat-cell>
+</ng-container> -->
+
+<ng-container matColumnDef="urlEmail">
+    <mat-header-cell *matHeaderCellDef> Contacto </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <button mat-button  mat-raised-button    color="primary"    (click)="openDialog(element)">¡Lo Quiero!</button> </mat-cell>
 </ng-container>
 
 

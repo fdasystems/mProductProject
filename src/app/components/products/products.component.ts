@@ -197,14 +197,19 @@ export class ProductsComponent implements OnInit {
   //  return this.searchKey.length==0;
   //}
 
-    //openDialog(elementId)
-    openDialog()
+    openDialog(element)
+  //  openDialog()
     {
       const mDialogConfig = new  MatDialogConfig();
       mDialogConfig.disableClose = false; //true;   para bloquear y cerrar solo con boton
       mDialogConfig.autoFocus = true;
       mDialogConfig.width = "60%";
+      mDialogConfig.data = {Id: element.Id, 
+                            Codigo: element.Codigo};
       //this.dialog.open(ContactComponent, elementId);
+
+      //ContactComponentitemToSend.set(element.Codigo)
+
       this.dialog.open(ContactComponent, mDialogConfig);
     }
   

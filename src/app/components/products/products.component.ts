@@ -4,7 +4,8 @@ import { Product } from 'src/app/models/products';
 import {MatTableDataSource /*, MatTableModule*/} from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { PaginationService } from 'src/app/services/pagination.service';
-
+import {  MatDialog, MatDialogConfig} from '@angular/material/dialog'; 
+import { ContactComponent } from 'src/app/shared/components/contact/contact.component';
 
 
 
@@ -50,7 +51,7 @@ export class ProductsComponent implements OnInit {
  // @Output() onDeleteCustomer = new EventEmitter();
   @Output() onPageSwitch = new EventEmitter();
 
-  constructor(public productsService: ProductsService, public paginationService: PaginationService ) { }
+  constructor(public productsService: ProductsService, public paginationService: PaginationService, public dialog: MatDialog ) { }
 
   ngOnInit(): void { //this.totalCount=8;
     this.getAllProducts('init');
@@ -196,5 +197,16 @@ export class ProductsComponent implements OnInit {
   //  return this.searchKey.length==0;
   //}
 
+    //openDialog(elementId)
+    openDialog()
+    {
+      const mDialogConfig = new  MatDialogConfig();
+      mDialogConfig.disableClose = false; //true;   para bloquear y cerrar solo con boton
+      mDialogConfig.autoFocus = true;
+      mDialogConfig.width = "60%";
+      //this.dialog.open(ContactComponent, elementId);
+      this.dialog.open(ContactComponent, mDialogConfig);
+    }
+  
 
 }

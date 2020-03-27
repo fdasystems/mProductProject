@@ -9,12 +9,14 @@ import {     MatFormFieldModule} from '@angular/material/form-field';
 import {     MatIconModule   } from '@angular/material/icon';
 import {     MatInputModule} from '@angular/material/input';
 import {     MatSelectModule  } from '@angular/material/select';
+import {     MatDialogModule  } from '@angular/material/dialog'; 
 
 
 const modules = [
                     MatButtonModule,        MatCardModule  ,        MatToolbarModule,
                     MatTableModule,         MatPaginatorModule,     MatFormFieldModule,
-                    MatIconModule,          MatInputModule,         MatSelectModule 
+                    MatIconModule,          MatInputModule,         MatSelectModule,
+                    MatDialogModule 
                 ]
 
 

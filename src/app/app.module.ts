@@ -18,7 +18,7 @@ import { CustomPaginator } from './CustomPaginatorConfiguration';
 import { PaginationService } from './services/pagination.service';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
-
+import { ContactComponent } from './shared/components/contact/contact.component'; 
 
 
 @NgModule({
@@ -36,6 +36,7 @@ import { SearchComponent } from './components/search/search.component';
     FormsModule 
   ],
   providers: [PaginationService, {provide: MatPaginatorIntl, useValue: CustomPaginator()}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ContactComponent]
 })
 export class AppModule { }

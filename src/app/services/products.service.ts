@@ -7,26 +7,20 @@ import { PaginationService } from './pagination.service';
   providedIn: 'root'
 })
 export class ProductsService {
-
-
-  private baseUrl='http://webapimpp.azurewebsites.net/';
- // private baseUrl='http://localhost:61504/';
- private urlService=this.baseUrl+'api/productos';
+ //private baseUrl='http://webapimpp.azurewebsites.net/'; // 
+ private baseUrl='http://localhost:61504/';
+ private urlService=this.baseUrl+'api/products';
   
-  constructor( private http: HttpClient, private paginationService: PaginationService) { }
+constructor(private http: HttpClient, private paginationService: PaginationService) { }
 
   getData(){
-    //var urlService='https://jsonplaceholder.typicode.com/photos?_limit=25';
-    //var urlService='http://localhost:61504/api/productos';
-    //var urlService='http://localhost:61504/api/productos?numberPage=1&takeCount=8';
-   
+    //var urlService='https://jsonplaceholder.typicode.com/photos?_limit=25';  
     const mergedUrl = `${this.urlService}` +
-            `?numberPage=${this.paginationService.page}&takeCount=${this.paginationService.pageSize}`;  // .pageCount
+            `?numberPage=${this.paginationService.page}&takeCount=${this.paginationService.pageSize}`;  
 
    // return this.http.get<Product[]>(mergedUrl);   //SOLO FALTA ACOMODAR EL RESULT AL OBJETO ESPERADO
     return this.http.get<any>(mergedUrl, {observe:'response'}); 
   }
-
 
   //Búsqueda por clave (en principio solo codigo)
   getFilteredData(searchKey){   
@@ -35,6 +29,5 @@ export class ProductsService {
 
     return this.http.get<any>(mergedUrl, {observe:'response'}); 
   }
-
 
 }

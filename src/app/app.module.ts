@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
-
 import { MaterialModule } from './material.module';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +14,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomPaginator } from './CustomPaginatorConfiguration';
 import { PaginationService } from './services/pagination.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { ContactComponent } from './shared/components/contact/contact.component'; 
 
@@ -24,8 +22,7 @@ import { ContactComponent } from './shared/components/contact/contact.component'
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent, 
-    ToolbarComponent, DashboardComponent, FooterComponent, SearchComponent  
+    ProductsComponent,ToolbarComponent, DashboardComponent, FooterComponent, SearchComponent, ContactComponent  
   ],
   imports: [
     BrowserModule,
@@ -33,7 +30,7 @@ import { ContactComponent } from './shared/components/contact/contact.component'
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule, ReactiveFormsModule 
   ],
   providers: [PaginationService, {provide: MatPaginatorIntl, useValue: CustomPaginator()}],
   bootstrap: [AppComponent],

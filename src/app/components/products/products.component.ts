@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, EventEmitter, Output, Input } from '@angular/core';
-import{ ProductsService} from './../../services/products.service';
-import { Product } from 'src/app/models/products';
-import {MatTableDataSource /*, MatTableModule*/} from '@angular/material/table';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { PaginationService } from 'src/app/services/pagination.service';
+import {  Component, OnInit, ViewChild, EventEmitter, Output, Input } from '@angular/core';
+import {   ProductsService} from './../../services/products.service';
+import {  Product } from 'src/app/models/products';
+import {  MatTableDataSource /*, MatTableModule*/} from '@angular/material/table';
+import {  MatPaginator, PageEvent } from '@angular/material/paginator';
+import {  PaginationService } from 'src/app/services/pagination.service';
 import {  MatDialog, MatDialogConfig} from '@angular/material/dialog'; 
-import { ContactComponent } from 'src/app/shared/components/contact/contact.component';
+import {  ContactComponent } from 'src/app/shared/components/contact/contact.component';
 
 
 
@@ -51,9 +51,11 @@ export class ProductsComponent implements OnInit {
  // @Output() onDeleteCustomer = new EventEmitter();
   @Output() onPageSwitch = new EventEmitter();
 
-  constructor(public productsService: ProductsService, public paginationService: PaginationService, public dialog: MatDialog ) { }
+  constructor(public productsService: ProductsService,  public paginationService: PaginationService, 
+              public dialog: MatDialog )
+  { }
 
-  ngOnInit(): void { //this.totalCount=8;
+  ngOnInit(): void { 
     this.getAllProducts('init');
   }
 
@@ -120,15 +122,14 @@ export class ProductsComponent implements OnInit {
        .subscribe((result: any) => {
          var paginationData = JSON.parse(result.headers.get('X-Pagination'));
           this.totalCount = paginationData.totalCount;
-          this.products = result.body;  //  .value        this.products = result;
+          this.products = result.body;  
           this.listData = new MatTableDataSource(this.products);
-          //faltaria el this.pagination1 ???   
+            
           if(origin=="searching-1st-time"){
-
             if (paginationData.totalPages==1)
-            this.listData.paginator=this.paginator1;
+              this.listData.paginator=this.paginator1;
             else
-            this.paginator1.pageIndex=0;
+              this.paginator1.pageIndex=0;
           } 
        });
  }
@@ -161,10 +162,6 @@ export class ProductsComponent implements OnInit {
     this.getAllProducts('switchPage');
   }
 
- // this.paginationModel.pageIndex = pageEvent.pageIndex + 1;
- // this.paginationModel.pageSize = pageEvent.pageSize;
- // this.paginationModel.allItemsLength = pageEvent.length;
-
   //search with searchKey
   searching(){
         // Clean pagination classic, change to normal pagination
@@ -192,25 +189,18 @@ export class ProductsComponent implements OnInit {
     this.getAllProducts('refreshing');
   }
 
-  //enabled or disabled search
-  // disableSearch(){
-  //  return this.searchKey.length==0;
-  //}
-
     openDialog(element)
-  //  openDialog()
     {
       const mDialogConfig = new  MatDialogConfig();
       mDialogConfig.disableClose = false; //true;   para bloquear y cerrar solo con boton
       mDialogConfig.autoFocus = true;
       mDialogConfig.width = "60%";
-      mDialogConfig.data = {Id: element.Id, 
-                            Codigo: element.Codigo};
-      //this.dialog.open(ContactComponent, elementId);
+      mDialogConfig.data = {Id: element.Id, Codigo: element.Codigo};
 
-      //ContactComponentitemToSend.set(element.Codigo)
-
-      this.dialog.open(ContactComponent, mDialogConfig);
+      const dialogRef = this.dialog.open(ContactComponent, mDialogConfig);
+      //return  dialogRef.afterClosed();
+      dialogRef.afterClosed().subscribe(
+        data => console.log("Dialog output:", data));
     }
   
 

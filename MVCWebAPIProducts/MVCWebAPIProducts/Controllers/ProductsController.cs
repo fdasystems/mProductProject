@@ -10,13 +10,13 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
-
+using System.Xml.Linq;
 
 namespace MVCWebAPIProducts.Controllers
 {
   //   [EnableCors(origins: "*", headers: "*", methods: "*")]
   [EnableCors(origins: "http://fdasystems.github.io, http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "X-Pagination")]
-  public class ProductosController : ApiController
+  public class ProductsController : ApiController
   {
     private SiSistemasWebEntities db = new SiSistemasWebEntities();
 

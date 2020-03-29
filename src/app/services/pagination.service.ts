@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
-import { PaginationModel } from  '../../app/models/pagination.model';  //  '../../models/pagination.model';
+import { PaginationModel } from  '../../app/models/pagination.model';  
 
 @Injectable()
 export class PaginationService {
@@ -15,11 +15,6 @@ export class PaginationService {
         return this.paginationModel.selectItemsPerPage;
     }
 
-    /* original
-    get pageCount(): number {
-        return this.paginationModel.pageSize;
-    }*/
-    //modif
     get pageSize(): number {
         return this.paginationModel.pageSize;
     }

@@ -56,3 +56,7 @@ C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebA
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\obj\Debug\MVCWebAPIProducts.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\obj\Debug\MVCWebAPIProducts.pdb
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\obj\Debug\MVCWebAPIProducts.csprojAssemblyReference.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Microsoft.Configuration.ConfigurationBuilders.Base.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml

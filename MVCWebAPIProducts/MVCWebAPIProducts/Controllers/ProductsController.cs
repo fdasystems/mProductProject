@@ -43,7 +43,7 @@ namespace MVCWebAPIProducts.Controllers
       }
       else
       {
-        allItemCount = db.Productos.Count();
+        allItemCount =  db.Productos.Count();
       }
 
       //En este paso tomo el count y el filtrado si es que hubo (Se incluye el skip y el take)

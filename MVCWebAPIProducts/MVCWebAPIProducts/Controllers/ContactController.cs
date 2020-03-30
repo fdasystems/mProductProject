@@ -20,6 +20,43 @@ namespace MVCWebAPIProducts.Controllers
     private string _userPassword = Environment.GetEnvironmentVariable("API_SMTPPASSWORD");
 
     //IHttpActionResult
+    /*[HttpPost]
+    public IHttpActionResult SendMail([FromBody] EmailModel email) //[FromBody]
+    {
+
+      if (!ModelState.IsValid)
+      {
+        return BadRequest(ModelState);
+      }
+
+      try
+      {
+          MailMessage mailMessage = new MailMessage();
+          mailMessage.To.Add(email.To);
+          mailMessage.From = new MailAddress(_userEmail, "FDA SINCE API");//email.From
+          mailMessage.Subject = email.Subject;
+          mailMessage.Body = email.Body;
+          mailMessage.IsBodyHtml = false; //false to security or true to design
+          _userPassword = _userPassword.Substring(0, 1) == "2" ? _userPassword + "***" : _userPassword; //Especial config
+          SmtpClient smtpClient = new SmtpClient(_smtpClient);//smtp.gmail.com
+          smtpClient.UseDefaultCredentials = bool.Parse(_useDefaultCredentials); //true;
+          smtpClient.Port = int.Parse(_smtpPort);//587
+          smtpClient.EnableSsl = bool.Parse(_enableSsl);//true
+          smtpClient.Credentials = new NetworkCredential(_userEmail, _userPassword);//u+p
+          smtpClient.Send(mailMessage);
+      }
+      catch (Exception ex)
+      {
+        return Content(HttpStatusCode.InternalServerError, ex);
+      }
+
+
+      return Ok();
+    }
+    */
+
+    //IHttpActionResult
+    /* Original*/
     [HttpPost]
     public async Task<IHttpActionResult> SendMail([FromBody] EmailModel email) //[FromBody]
     {
@@ -29,23 +66,30 @@ namespace MVCWebAPIProducts.Controllers
         return BadRequest(ModelState);
       }
 
+      try
+      {
+        MailMessage mailMessage = new MailMessage();
+        mailMessage.To.Add(email.To);
+        mailMessage.From = new MailAddress(_userEmail, "FDA SINCE API");//email.From
+        mailMessage.Subject = email.Subject;
+        mailMessage.Body = email.Body;
+        mailMessage.IsBodyHtml = false; //false to security or true to design
+        SmtpClient smtpClient = new SmtpClient(_smtpClient);//smtp.gmail.com
+        smtpClient.UseDefaultCredentials = bool.Parse(_useDefaultCredentials); //true;
+        smtpClient.Port = int.Parse(_smtpPort);//587
+        smtpClient.EnableSsl = bool.Parse(_enableSsl);//true
+        smtpClient.Credentials = new NetworkCredential(_userEmail, _userPassword);//u+p
+        await smtpClient.SendMailAsync(mailMessage);
+      }
+      catch (Exception ex)
+      {
+        return Content(HttpStatusCode.InternalServerError, ex);
+      }
 
-      MailMessage mailMessage = new MailMessage();
-      mailMessage.To.Add(email.To);
-      mailMessage.From = new MailAddress(_userEmail, "FDA SINCE API");//email.From
-      mailMessage.Subject = email.Subject;
-      mailMessage.Body = email.Body;
-      mailMessage.IsBodyHtml = false; //false to security or true to design
-      _userPassword = _userPassword.Substring(0, 1) == "2" ? _userPassword + "***" : _userPassword; //Especial config
-      SmtpClient smtpClient = new SmtpClient(_smtpClient);//smtp.gmail.com
-      smtpClient.UseDefaultCredentials = bool.Parse(_useDefaultCredentials); //true;
-      smtpClient.Port = int.Parse(_smtpPort);//587
-      smtpClient.EnableSsl = bool.Parse(_enableSsl);//true
-      smtpClient.Credentials = new NetworkCredential(_userEmail, _userPassword);//u+p
-      await smtpClient.SendMailAsync(mailMessage);
-
-      return Ok();
+      return Ok("Succesfully");
     }
+
+
 
   }
 }

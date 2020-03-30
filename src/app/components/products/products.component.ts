@@ -23,28 +23,12 @@ export class ProductsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator1: MatPaginator;
   searchKey: string;
   eventLocal : PageEvent;
+  SentStatusOk:  boolean =false;
+  SentStatusBad: boolean =false;
 
-  /*
-  //test fix of mp
-  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
-    this.paginator = mp;
-    this.setDataSourceAttributes();
-  }
 
-  setDataSourceAttributes() {
-    this.listData.paginator = this.paginator;
-    //this.listData.sort = this.sort;
-
-    //if (this.paginator && this.sort) {
-    //  this.applyFilter('');
-    //} 
-  }   
-*/
   
   @Input('listData')
-  /*set allowDay(value: Product[]) {
-      this.listData = new MatTableDataSource<Product>(value);
-  }*/
 
 
   @Input() totalCount: number;
@@ -53,7 +37,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(public productsService: ProductsService,  public paginationService: PaginationService, 
               public dialog: MatDialog )
-  { }
+  { 
+  }
 
   ngOnInit(): void { 
     this.getAllProducts('init');
@@ -134,11 +119,6 @@ export class ProductsComponent implements OnInit {
        });
  }
 
-  /* ...sol. int. post llamado para no perder el enlace... pero lanza error de consola comment
-  ngAfterViewInit() {
-    this.listData.paginator = this.paginator1;
-  }*/
-
   //normal direct call
   pageChanged(event: PageEvent) {
     console.log(event);
@@ -192,16 +172,45 @@ export class ProductsComponent implements OnInit {
     openDialog(element)
     {
       const mDialogConfig = new  MatDialogConfig();
-      mDialogConfig.disableClose = false; //true;   para bloquear y cerrar solo con boton
+      mDialogConfig.disableClose = true; //true;   para bloquear y cerrar solo con boton
       mDialogConfig.autoFocus = true;
       mDialogConfig.width = "60%";
       mDialogConfig.data = {Id: element.Id, Codigo: element.Codigo};
 
       const dialogRef = this.dialog.open(ContactComponent, mDialogConfig);
-      //return  dialogRef.afterClosed();
+      
       dialogRef.afterClosed().subscribe(
-        data => console.log("Dialog output:", data));
+        data => {
+                  console.log("Dialog output:", data);
+
+                  var delay = true;                   
+
+                  switch(data)
+                  {
+                    case "error": { this.SentStatusBad=true;   this.SentStatusOk=false;}
+                    break;
+                    case "Succesfully": {this.SentStatusBad=false;  this.SentStatusOk=true; }
+                    break;
+                    default: {this.SentStatusBad=false; this.SentStatusOk=false; delay = false;}
+                    break;
+                    
+                  }
+
+                 if (delay)
+                 {
+                  //hide message result
+                  this.delay(7000).then(any=>{
+                    this.SentStatusBad=false;
+                    this.SentStatusOk=false;
+                  });    
+                 }
+
+                }
+        );
     }
   
+    async delay(ms: number) {
+      await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+    }
 
 }

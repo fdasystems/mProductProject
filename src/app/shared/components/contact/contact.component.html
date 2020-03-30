@@ -1,16 +1,32 @@
-<p>codigo:{{itemToSend.Codigo}}</p>
 
+<mat-card [style.width.%]="94">
+    <mat-card-title>
+        <p>Código: {{itemToSend.Codigo}}</p>
+    </mat-card-title> 
+    <mat-card-subtitle>    </mat-card-subtitle>
+    <mat-card-content  >
+        <mat-dialog-content [formGroup]="form"  >  <!--(submit)="submit()"-->
+            <mat-form-field  class="form-field" [style.width.%]="90" >
+                <textarea   matInput
+                        placeholder="Agregue su email o teléfono para ser contactado"
+                    formControlName="bodyInForm"></textarea>
+            </mat-form-field>
+        </mat-dialog-content>
 
-<mat-dialog-content [formGroup]="form">  <!--(submit)="submit()"-->
-  
-    <mat-form-field  class="form-field">
-        <input matInput
-                placeholder="Agregue su email o teléfono para ser contactado"
-               formControlName="bodyInForm">
-    </mat-form-field>
-</mat-dialog-content>
+        <mat-dialog-actions class="specialCenter" >
+           
 
-<mat-dialog-actions>
-    <button class="mat-raised-button"(click)="close()" >Close</button>
-    <button class="mat-raised-button mat-primary"(click)="SendMessage()">Enviar</button>
-</mat-dialog-actions>
+            <button class="mat-raised-button mat-primary"(click)="SendMessage()"  [disabled]="sending" style="-webkit-text-fill-color:rgb(255, 255, 255)"  > 
+                    <div *ngIf="!sending"><mat-icon >mail</mat-icon> &nbsp;&nbsp; Enviar </div>  
+                    <div *ngIf="sending"><mat-icon>compare_arrow</mat-icon>    ...Enviando...  </div>
+            </button>
+
+            <div style="margin-left: 10rem !important;" ></div>
+
+            <button class="mat-raised-button"(click)="close()" *ngIf="!sending" >
+                    <mat-icon style="-webkit-text-fill-color:red">restore_from_trash</mat-icon>
+            </button>   
+
+        </mat-dialog-actions>
+    </mat-card-content>
+</mat-card>

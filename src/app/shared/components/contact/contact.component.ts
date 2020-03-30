@@ -6,6 +6,13 @@ import {  NgForm } from '@angular/forms';
 import {  MatSnackBar} from '@angular/material/snack-bar'; //See snackbar   in const +++>private: snackbar:MAtSnackBar==> this.snackbar.open( res.toString(), '', {duration:5000, verticalPosition:'top'});
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {FormBuilder, Validators, FormGroup} from "@angular/forms";
+// Importing rxjs
+//import 'rxjs/Rx';
+//import { Observable } from 'rxjs/Rx/Observable';
+//import { catchError, tap } from 'rxjs/operators'; // Important! Be sure to connect operators
+
+//import 'rxjs/add/operator/catch';
+//import 'rxjs/add/observable/throw';
 
 
 @Component({
@@ -20,6 +27,7 @@ messageResult;
 subject: string;
 body: string
 form: FormGroup;
+sending: boolean;
 
   constructor( private formBuilder: FormBuilder,
               public contactService : ContactService,
@@ -28,6 +36,7 @@ form: FormGroup;
              )      
     {
       this.itemToSend=data;
+      this.sending=false;
     }
 
   ngOnInit(): void {
@@ -58,10 +67,10 @@ form: FormGroup;
   }
 
   close() {
-    this.dialogRef.close();
+    this.dialogRef.close("closeButton");
   }
 
-
+  /*
   SendSimpleMessage(subjectToSend: string, bodyToSend: string) {
     this.contactService.SendSimpleMessage(subjectToSend, bodyToSend)
      //.AddEmployee(this.Dummyemployee)
@@ -74,7 +83,23 @@ form: FormGroup;
         this.dialogRef.close(this.form.value);
     }), (err: string) => {
         console.log("Error Occured " + err);
+        this.dialogRef.close(this.form.value);
         }
   }
+  */
+  
+  SendSimpleMessage(subjectToSend: string, bodyToSend: string) {
+    this.sending=true;
+    this.contactService.SendSimpleMessage(subjectToSend, bodyToSend)
+     //.AddEmployee(this.Dummyemployee)
+     .subscribe(
+      data => {console.log(data); //this.form.value
+                this.dialogRef.close(data);},
+      err => {console.log(err); //this.form.value
+                this.dialogRef.close("error");}
+     );
+  }
+
+
 
 }

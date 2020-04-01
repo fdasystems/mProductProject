@@ -1,29 +1,39 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.Practices.Unity;
+using MVCWebAPIProducts.Interfaces;
+using MVCWebAPIProducts.Services;
 using System.Web.Http;
-using System.Web.Http.Cors;
 
 namespace MVCWebAPIProducts
 {
-    public static class WebApiConfig
+  public static class WebApiConfig
+  {
+    public static void Register(HttpConfiguration config)
     {
-        public static void Register(HttpConfiguration config)
-        {
-            // Web API configuration and services
-            config.EnableCors();
+      // Web API configuration and services
+      config.EnableCors();
 
-          //  config.EnableCors(new EnableCorsAttribute(Properties.Settings.Default.Cors, "", ""));
-          //  app.UseCors(CorsOptions.AllowAll);
+      //  config.EnableCors(new EnableCorsAttribute(Properties.Settings.Default.Cors, "", ""));
+      //  app.UseCors(CorsOptions.AllowAll);
 
-            // Web API routes
-            config.MapHttpAttributeRoutes();
+      // Web API routes
+      config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
+
+      //mapping with Ioc Unity Inject Dependency
+      var container = new UnityContainer();
+      container.RegisterType<IMailService, MailService>(new HierarchicalLifetimeManager());
+      config.DependencyResolver = new UnityResolver(container);
+
+
+      config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-        }
     }
+
+
+
+
+  }
 }

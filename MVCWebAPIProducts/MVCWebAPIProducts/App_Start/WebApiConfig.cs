@@ -1,6 +1,10 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Practices.Unity;
 using MVCWebAPIProducts.Interfaces;
+using MVCWebAPIProducts.Models;
 using MVCWebAPIProducts.Services;
+using System;
+using System.Configuration;
 using System.Web.Http;
 
 namespace MVCWebAPIProducts
@@ -17,6 +21,30 @@ namespace MVCWebAPIProducts
 
       // Web API routes
       config.MapHttpAttributeRoutes();
+
+      //var builder = new ConfigurationBuilder();
+      //builder.AddAzureAppConfiguration(options =>
+      //{
+      //  options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+      //          .ConfigureRefresh(refresh =>
+      //          {
+      //            refresh.Register("TestApp:Settings:Message")
+      //                .SetCacheExpiration(TimeSpan.FromSeconds(10));
+      //          });
+
+      //  _refresher = options.GetRefresher();
+      //});
+
+      //_configuration = builder.Build();
+
+      //services.AddDbContext<SiSistemasWebEntities>(options =>
+      //options.UseSqlServer(Configuration.GetConnectionString("SiSistemasWebEntities")));
+
+    //  var builder = new Microsoft.Extensions.Configuration.ConfigurationBuilder();
+    ////  Configuration configuration = new Configuration(1);
+    //  builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("SiSistemasWebEntities"));
+
+    //  builder.Build();
 
 
       //mapping with Ioc Unity Inject Dependency

@@ -18,6 +18,9 @@ namespace MVCWebAPIProducts.Controllers
   [EnableCors(origins: "http://fdasystems.github.io, http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "X-Pagination")]
   public class ProductsController : ApiController
   {
+
+
+
     private SiSistemasWebEntities db = new SiSistemasWebEntities();
 
     // GET: api/Productos

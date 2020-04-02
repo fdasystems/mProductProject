@@ -19,10 +19,11 @@ namespace MVCWebAPIProducts.Controllers
       this._mailService = mailService;
     }
 
- 
 
-    
-    /* Original - envio desde server SMPT*/
+
+
+    /* Original _mailService.SendMail - envio desde server SMPT*/
+      /* Nueva version _mailService.SendMailSengrid - envio desde  API  --puede cambiarse solo el metodo-- */
     [HttpPost]
     public async Task<IHttpActionResult> SendMail([FromBody] EmailModel email) 
     {
@@ -33,7 +34,7 @@ namespace MVCWebAPIProducts.Controllers
 
       try
       {
-        await _mailService.SendMail(email);
+        await _mailService.SendMailSendgrid(email);
       }
       catch (Exception ex)
       {
@@ -43,7 +44,6 @@ namespace MVCWebAPIProducts.Controllers
       return Ok("Succesfully");
     }
 
-    /* Nueva version - envio desde  API */
-
+  
   }
 }

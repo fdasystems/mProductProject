@@ -10,22 +10,40 @@
 namespace MVCWebAPIProducts.Models
 {
     using System;
-    using System.Data.Entity;
+  using System.Configuration;
+  using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class SiSistemasWebEntities : DbContext
+  using System.Data.SqlClient;
+  //using Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration;
+  //using Microsoft.Configuration.ConfigurationBuilders.Environment;
+  //using System.Configuration.ConfigurationManager;
+
+  public partial class SiSistemasWebEntities : DbContext
     {
         public SiSistemasWebEntities()
             : base("name=SiSistemasWebEntities")
+
+   // :base(Configuration.Get("Data:DefaultConnection:ConnectionString"))
+            //: base((new SqlConnectionStringBuilder(
+              
+            //CloudConfigurationManager.GetSetting("dbRAActivity")).ToString()))
         {
+    //  Configuration.Get("Data:DefaultConnection:ConnectionString");
+
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
+
     
-        public virtual DbSet<Precios> Precios { get; set; }
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //  optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["BloggingDatabase"].ConnectionString);
+    //}
+
+    public virtual DbSet<Precios> Precios { get; set; }
         public virtual DbSet<Productos> Productos { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
     }

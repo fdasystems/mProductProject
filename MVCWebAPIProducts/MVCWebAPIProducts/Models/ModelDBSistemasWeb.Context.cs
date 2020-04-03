@@ -20,17 +20,18 @@ namespace MVCWebAPIProducts.Models
 
   public partial class SiSistemasWebEntities : DbContext
     {
-        public SiSistemasWebEntities()
-            : base("name=SiSistemasWebEntities")
+        public SiSistemasWebEntities(string connString)
+        : base(connString)
+    //: base("name=SiSistemasWebEntities")
 
-   // :base(Configuration.Get("Data:DefaultConnection:ConnectionString"))
-            //: base((new SqlConnectionStringBuilder(
-              
-            //CloudConfigurationManager.GetSetting("dbRAActivity")).ToString()))
-        {
-    //  Configuration.Get("Data:DefaultConnection:ConnectionString");
+    // :base(Configuration.Get("Data:DefaultConnection:ConnectionString"))
+    //: base((new SqlConnectionStringBuilder(
 
-        }
+    //CloudConfigurationManager.GetSetting("dbRAActivity")).ToString()))
+    {
+      //  Configuration.Get("Data:DefaultConnection:ConnectionString");
+
+    }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

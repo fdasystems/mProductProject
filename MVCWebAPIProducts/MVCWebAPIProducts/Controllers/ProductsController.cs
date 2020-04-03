@@ -1,6 +1,7 @@
 using MVCWebAPIProducts.Models;
 using Newtonsoft.Json;
 using System;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -12,6 +13,12 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using System.Xml.Linq;
 
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data.Entity.Core.EntityClient;
+
+
+
 namespace MVCWebAPIProducts.Controllers
 {
   //   [EnableCors(origins: "*", headers: "*", methods: "*")]
@@ -19,16 +26,62 @@ namespace MVCWebAPIProducts.Controllers
   public class ProductsController : ApiController
   {
 
+    //ConfigurationManager.ConnectionStrings["SiSistemasWebEntities"].ConnectionString.ToString()
 
-
-    private SiSistemasWebEntities db = new SiSistemasWebEntities();
-
+    //private SiSistemasWebEntities db = new SiSistemasWebEntities(ConfigurationManager.ConnectionStrings["SiSistemasWebEntitiesDinamic"].ConnectionString.ToString());
+    //private SiSistemasWebEntities db = new SiSistemasWebEntities(Environment.GetEnvironmentVariable("SiSistemasWebEntities
+    private SiSistemasWebEntities db = new SiSistemasWebEntities(GenerateConnectionStringEntity(Environment.GetEnvironmentVariable("SiSistemasWebEntitiesSQLSIMPLEMODE")));
     // GET: api/Productos
     public IQueryable<Productos> GetProductos()
     {
       return db.Productos.Include(x => x.Precios);
     }
 
+    public static string GenerateConnectionStringEntity(string connectString)  //  (string connEntity)
+    {
+
+      string connBasic = string.Empty;
+
+      //connBasic = "metadata=res://*/Models.ModelDBSistemasWeb.csdl|res://*/Models.ModelDBSistemasWeb.ssdl|res://*/Models.ModelDBSistemasWeb.msl;provider=System.Data.SqlClient;provider connection string=\"data source=190.105.226.76\\MSSQLSERVER2017;initial catalog=SiSistemasDEMO;persist security info=True;user id=FdaSystems;password=F@vio2020!;MultipleActiveResultSets=True;App=EntityFramework\"";
+
+
+      //var a = new System.Data.EntityClient.EntityConnectionStringBuilder(connBasic);
+
+      //return connBasic;
+
+      // Initialize the SqlConnectionStringBuilder.  
+      string dbServer = string.Empty;
+      string dbName = string.Empty;
+      // use it from previously built normal connection string  
+     // string connectString = Convert.ToString(ConfigurationManager.ConnectionStrings[connEntity]);
+      var sqlBuilder = new SqlConnectionStringBuilder(connectString);
+      // Set the properties for the data source.  
+      dbServer = sqlBuilder.DataSource;
+      dbName = sqlBuilder.InitialCatalog;
+      //sqlBuilder.UserID = "Database_User_ID";
+      //sqlBuilder.Password = "Database_User_Password";
+      sqlBuilder.IntegratedSecurity = false;
+      sqlBuilder.MultipleActiveResultSets = true;
+      // Build the SqlConnection connection string.  
+      string providerString = Convert.ToString(sqlBuilder);
+      // Initialize the EntityConnectionStringBuilder.  
+      var entityBuilder = new EntityConnectionStringBuilder();
+      //Set the provider name.  
+      entityBuilder.Provider = "System.Data.SqlClient";
+      // Set the provider-specific connection string.  
+      entityBuilder.ProviderConnectionString = providerString;
+      // Set the Metadata location.  
+      //entityBuilder.Metadata = "res://*/EntityDataObjectName.csdl|res: //*/EntityDataObjectName.ssdl|res: //*/EntityDataObjectName.msl";  //@
+      entityBuilder.Metadata = "res://*/Models.ModelDBSistemasWeb.csdl|res://*/Models.ModelDBSistemasWeb.ssdl|res://*/Models.ModelDBSistemasWeb.msl"; // ";" in or out
+        return entityBuilder.ToString();
+
+      /*OK*/ //connBasic = "metadata="+entityBuilder.Metadata +"; provider="+ entityBuilder.Provider + ";provider connection string=\"" + providerString + "App=EntityFramework\"";
+     /*OK2*/ //connBasic = "metadata=res://*/Models.ModelDBSistemasWeb.csdl|res://*/Models.ModelDBSistemasWeb.ssdl|res://*/Models.ModelDBSistemasWeb.msl;provider=System.Data.SqlClient;provider connection string=\""+ providerString + "App=EntityFramework\"";
+     /*OK3*/ //connBasic = "metadata=res://*/Models.ModelDBSistemasWeb.csdl|res://*/Models.ModelDBSistemasWeb.ssdl|res://*/Models.ModelDBSistemasWeb.msl;provider=System.Data.SqlClient;provider connection string=\"data source="+ sqlBuilder.DataSource + ";initial catalog="+ sqlBuilder.InitialCatalog + ";persist security info=True;user id="+ sqlBuilder.UserID + ";password="+sqlBuilder.Password+";MultipleActiveResultSets=True;App=EntityFramework\"";
+     // connBasic = "metadata=res://*/Models.ModelDBSistemasWeb.csdl|res://*/Models.ModelDBSistemasWeb.ssdl|res://*/Models.ModelDBSistemasWeb.msl;provider=System.Data.SqlClient;provider connection string=\"data source=190.105.226.76\\MSSQLSERVER2017;initial catalog=SiSistemasDEMO;persist security info=True;user id=FdaSystems;password=F@vio2020!;MultipleActiveResultSets=True;App=EntityFramework\"";
+
+     // return connBasic;
+    }
 
 
     [ResponseType(typeof(Productos))]

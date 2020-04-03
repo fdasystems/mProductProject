@@ -40,12 +40,13 @@ namespace MVCWebAPIProducts
       //services.AddDbContext<SiSistemasWebEntities>(options =>
       //options.UseSqlServer(Configuration.GetConnectionString("SiSistemasWebEntities")));
 
-    //  var builder = new Microsoft.Extensions.Configuration.ConfigurationBuilder();
-    ////  Configuration configuration = new Configuration(1);
-    //  builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("SiSistemasWebEntities"));
+      //  var builder = new Microsoft.Extensions.Configuration.ConfigurationBuilder();
+      ////  Configuration configuration = new Configuration(1);
+      //  builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("SiSistemasWebEntities"));
 
-    //  builder.Build();
+      //  builder.Build();
 
+     // ConfigurationManager.ConnectionStrings["SiSistemasWebEntities"].ConnectionString.ToString();
 
       //mapping with Ioc Unity Inject Dependency
       var container = new UnityContainer();

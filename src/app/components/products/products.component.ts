@@ -97,7 +97,13 @@ export class ProductsComponent implements OnInit {
              this.listData.paginator=this.paginator1;
            }
 
-        });
+        },
+        (error: any)=>
+          { 
+            console.log(error);  
+            this.listData=new MatTableDataSource<Product>();
+          }
+        );
   }
 
 
@@ -116,7 +122,12 @@ export class ProductsComponent implements OnInit {
             else
               this.paginator1.pageIndex=0;
           } 
-       });
+       },
+       (error: any)=>
+         { 
+           console.log(error);  
+           this.listData=new MatTableDataSource<Product>();
+         });
  }
 
   //normal direct call

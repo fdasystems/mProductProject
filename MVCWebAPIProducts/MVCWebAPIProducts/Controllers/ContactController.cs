@@ -7,8 +7,8 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace MVCWebAPIProducts.Controllers
-{
-  [EnableCors(origins: "http://fdasystems.github.io, http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "X-Pagination")]
+{  //  /, http://fdasystems.github.io, 
+  [EnableCors(origins: "https://fdasystems.github.io,http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "X-Pagination")]
 
   public class ContactController : ApiController
   {

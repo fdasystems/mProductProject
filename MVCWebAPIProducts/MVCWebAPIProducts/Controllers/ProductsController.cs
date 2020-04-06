@@ -21,15 +21,17 @@ using System.Data.Entity.Core.EntityClient;
 
 namespace MVCWebAPIProducts.Controllers
 {
-  //   [EnableCors(origins: "*", headers: "*", methods: "*")]
-  [EnableCors(origins: "http://fdasystems.github.io, http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "X-Pagination")]
+  //   [EnableCors(origins: "*", headers: "*", methods: "*")]http://fdasystems.github.io,
+  [EnableCors(origins: "https://fdasystems.github.io,http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "X-Pagination, X-Message")]
   public class ProductsController : ApiController
   {
 
     //ConfigurationManager.ConnectionStrings["SiSistemasWebEntities"].ConnectionString.ToString()
+    //    private SiSistemasWebEntities db = new SiSistemasWebEntities(ConfigurationManager.ConnectionStrings["SiSistemasWebEntities"].ConnectionString.ToString());
 
     //private SiSistemasWebEntities db = new SiSistemasWebEntities(ConfigurationManager.ConnectionStrings["SiSistemasWebEntitiesDinamic"].ConnectionString.ToString());
     //private SiSistemasWebEntities db = new SiSistemasWebEntities(Environment.GetEnvironmentVariable("SiSistemasWebEntities
+    //OK2//
     private SiSistemasWebEntities db = new SiSistemasWebEntities(GenerateConnectionStringEntity(Environment.GetEnvironmentVariable("SiSistemasWebEntitiesSQLSIMPLEMODE")));
     // GET: api/Productos
     public IQueryable<Productos> GetProductos()
@@ -91,19 +93,32 @@ namespace MVCWebAPIProducts.Controllers
       int allItemCount = 0;
       IQueryable<Productos> allItemSelected = null;// = new IQueryable<Productos>();
 
-      //si vengo por busqueda el totalItemsCount cambia respecto del Count Gral
-      if (searchTerms!=null && searchTerms.Length > 0)
-      {
-        allItemSelected = db.Productos.Include(x => x.Precios).Where(x => x.Codigo.Contains(searchTerms)).OrderBy(x=> x.Id);//Aca podes recibir el SORT
-        allItemCount = allItemSelected.Count();
-      }
-      else
-      {
-        allItemCount =  db.Productos.Count();
-      }
 
-      //En este paso tomo el count y el filtrado si es que hubo (Se incluye el skip y el take)
-      allItemSelected = GetItemsToResponse(numberPage, takeCount, allItemCount, allItemSelected);
+      //si vengo por busqueda el totalItemsCount cambia respecto del Count Gral
+      try
+      {
+        if (searchTerms != null && searchTerms.Length > 0)
+        {
+          allItemSelected = db.Productos.Include(x => x.Precios).Where(x => x.Codigo.Contains(searchTerms)).OrderBy(x => x.Id);//Aca podes recibir el SORT
+          allItemCount = allItemSelected.Count();
+        }
+        else
+        {
+          allItemCount = db.Productos.Count();
+        }
+
+        //En este paso tomo el count y el filtrado si es que hubo (Se incluye el skip y el take)
+        allItemSelected = GetItemsToResponse(numberPage, takeCount, allItemCount, allItemSelected);
+      }
+      catch (Exception ex)
+      {
+
+        string message = ex.InnerException != null ? ex.InnerException.ToString() : string.Empty;
+        message += "||ex.Message=>" + ex.Message.ToString() + "||ex.StackTrace=>" + ex.StackTrace.ToString();
+        //return BadRequest(message);
+        HttpContext.Current.Response.Headers.Add("X-Message", message.Substring(0,250));
+        throw new Exception(message);
+      }
       
       return allItemSelected;
 

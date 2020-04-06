@@ -7,17 +7,16 @@ import { PaginationService } from './pagination.service';
   providedIn: 'root'
 })
 export class ProductsService {
- private baseUrl='http://webapimpp.azurewebsites.net/'; // 
+ private baseUrl='https://webapimpp.azurewebsites.net/'; // 
  //private baseUrl='http://localhost:61504/';
  private urlService=this.baseUrl+'api/products';
   
 constructor(private http: HttpClient, private paginationService: PaginationService) { }
 
   getData(){
-    //var urlService='https://jsonplaceholder.typicode.com/photos?_limit=25';  
-    const mergedUrl = `${this.urlService}` +
-            `?numberPage=${this.paginationService.page}&takeCount=${this.paginationService.pageSize}`;  
-
+    //const mergedUrl='https://jsonplaceholder.typicode.com/photos?_limit=25';  
+    const mergedUrl = `${this.urlService}` + `?numberPage=${this.paginationService.page}&takeCount=${this.paginationService.pageSize}`;  
+        // const mergedUrl =this.urlService+'/10';
    // return this.http.get<Product[]>(mergedUrl);   //SOLO FALTA ACOMODAR EL RESULT AL OBJETO ESPERADO
     return this.http.get<any>(mergedUrl, {observe:'response'}); 
   }

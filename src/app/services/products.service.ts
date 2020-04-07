@@ -7,8 +7,8 @@ import { PaginationService } from './pagination.service';
   providedIn: 'root'
 })
 export class ProductsService {
- private baseUrl='https://webapimpp.azurewebsites.net/'; // 
- //private baseUrl='http://localhost:61504/';
+ //private baseUrl='https://webapimpp.azurewebsites.net/'; // 
+ private baseUrl='http://localhost:61504/';
  private urlService=this.baseUrl+'api/products';
   
 constructor(private http: HttpClient, private paginationService: PaginationService) { }

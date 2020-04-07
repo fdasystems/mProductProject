@@ -1,4 +1,4 @@
-using MVCWebAPIProducts.Models;
+//using MVCWebAPIProducts.Models;
 using Newtonsoft.Json;
 using System;
 using System.Configuration;
@@ -16,8 +16,9 @@ using System.Xml.Linq;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data.Entity.Core.EntityClient;
-
-
+using MVCWebAPIProducts.Services;
+using MVCWebAPIProducts.Entities.DTOs.ResponseDto;
+using MVCWebAPIProducts.Entities.Model;
 
 namespace MVCWebAPIProducts.Controllers
 {
@@ -32,13 +33,24 @@ namespace MVCWebAPIProducts.Controllers
     //private SiSistemasWebEntities db = new SiSistemasWebEntities(ConfigurationManager.ConnectionStrings["SiSistemasWebEntitiesDinamic"].ConnectionString.ToString());
     //private SiSistemasWebEntities db = new SiSistemasWebEntities(Environment.GetEnvironmentVariable("SiSistemasWebEntities
     //OK2//
-    private SiSistemasWebEntities db = new SiSistemasWebEntities(GenerateConnectionStringEntity(Environment.GetEnvironmentVariable("SiSistemasWebEntitiesSQLSIMPLEMODE")));
+   // private SiSistemasWebEntities db = new SiSistemasWebEntities(GenerateConnectionStringEntity(Environment.GetEnvironmentVariable("SiSistemasWebEntitiesSQLSIMPLEMODE")));
     // GET: api/Productos
     public IQueryable<Productos> GetProductos()
+   //luego public IQueryable<ResponseProductDTO> GetProductos()
     {
-      return db.Productos.Include(x => x.Precios);
-    }
+      // return db.Productos.Include(x => x.Precios);
+      ProductServices service = new ProductServices();
+      var productsDto = service.GetProducts();
+      return productsDto;
 
+
+    }
+/*    var dto = service.GetDto<WebChangeDeliveryDto>(x =>
+      {
+        x.OrderId = id;
+        x.UserId = GetUserId(HttpContext);
+      });
+      */
     public static string GenerateConnectionStringEntity(string connectString)  //  (string connEntity)
     {
 
@@ -92,8 +104,20 @@ namespace MVCWebAPIProducts.Controllers
     {
       int allItemCount = 0;
       IQueryable<Productos> allItemSelected = null;// = new IQueryable<Productos>();
+      allItemSelected = this.GetProductos();
 
+      //TEST DE DESACOPLAMIENTO
+      var paginationMetadata = new
+      {
+        totalCount = 39,  //allItemCount,
+        pageSize = takeCount, //queryParameters.PageCount,
+        currentPage = numberPage, //queryParameters.Page,
+        totalPages = 3 //totalPages //queryParameters.GetTotalPages(allItemCount)
+      };
 
+      HttpContext.Current.Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(paginationMetadata));
+
+      /*TEST DE DESACPLAMIENTO
       //si vengo por busqueda el totalItemsCount cambia respecto del Count Gral
       try
       {
@@ -119,7 +143,7 @@ namespace MVCWebAPIProducts.Controllers
         HttpContext.Current.Response.Headers.Add("X-Message", message.Substring(0,250));
         throw new Exception(message);
       }
-      
+     */
       return allItemSelected;
 
       /*//return Ok(allItemSelected);
@@ -129,7 +153,7 @@ namespace MVCWebAPIProducts.Controllers
           totalPages =  totalPages
       }); */
     }
-
+    /*TEST DE DESACOPLAMIENTO
     private IQueryable<Productos> GetItemsToResponse(int numberPage, int takeCount, int allItemCount, IQueryable<Productos> allItemSelected)
     {
       var totalPages = Math.Ceiling(allItemCount / (double)takeCount);
@@ -171,7 +195,7 @@ namespace MVCWebAPIProducts.Controllers
       
       return allItemSelected;
     }
-
+    */
 
     /*
     [HttpGet(Name = nameof(GetProductosPaginationAdvanced))]
@@ -225,6 +249,8 @@ namespace MVCWebAPIProducts.Controllers
 
 
 
+
+      /*
 
     // GET: api/Productos/5
     [ResponseType(typeof(Productos))]
@@ -318,5 +344,8 @@ namespace MVCWebAPIProducts.Controllers
     {
       return db.Productos.Count(e => e.Id == id) > 0;
     }
+
+    */
+
   }
 }

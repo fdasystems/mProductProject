@@ -1,0 +1,14 @@
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Debug\MVCWebAPIProducts.Services.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Debug\MVCWebAPIProducts.Services.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Debug\MVCWebAPIProducts.Services.csprojAssemblyReference.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Debug\MVCWebAPIProducts.Services.csproj.CoreCompileInputs.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Debug\MVCWebAPIProducts.Services.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Debug\MVCWebAPIProducts.Services.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Debug\MVCWebAPIProducts.DataAccessLayer.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Debug\MVCWebAPIProducts.Entities.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Debug\EntityFramework.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Debug\MVCWebAPIProducts.DataAccessLayer.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Debug\MVCWebAPIProducts.DataAccessLayer.dll.config
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Debug\MVCWebAPIProducts.Entities.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Debug\EntityFramework.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Debug\MVCWebAPIProducts.Services.csproj.CopyComplete

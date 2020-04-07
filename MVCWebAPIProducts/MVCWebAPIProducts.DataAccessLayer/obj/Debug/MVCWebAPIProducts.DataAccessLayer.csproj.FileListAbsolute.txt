@@ -1,0 +1,14 @@
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Debug\MVCWebAPIProducts.DataAccessLayer.dll.config
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Debug\MVCWebAPIProducts.DataAccessLayer.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Debug\MVCWebAPIProducts.DataAccessLayer.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Debug\MVCWebAPIProducts.Entities.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Debug\MVCWebAPIProducts.Entities.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Debug\MVCWebAPIProducts.DataAccessLayer.csprojAssemblyReference.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Debug\MVCWebAPIProducts.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Debug\MVCWebAPIProducts.DataAccessLayer.csproj.CopyComplete
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Debug\MVCWebAPIProducts.DataAccessLayer.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Debug\MVCWebAPIProducts.DataAccessLayer.pdb

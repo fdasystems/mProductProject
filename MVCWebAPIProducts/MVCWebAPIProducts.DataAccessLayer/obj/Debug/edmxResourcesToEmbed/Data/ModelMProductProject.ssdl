@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SiSistemasDEMOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Precios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAlta" Type="date" Nullable="false" />
+    <Property Name="FBaja" Type="date" />
+    <Property Name="ProductoId" Type="int" Nullable="false" />
+    <Property Name="Utilidad" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PrecioVenta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Tarjeta" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAlta" Type="date" Nullable="false" />
+    <Property Name="FBaja" Type="date" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" />
+    <Property Name="Codigo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RutaImagen" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Precios_Productos_PreciosProductosId">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+    <End Role="Precios" Type="Self.Precios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Precios">
+        <PropertyRef Name="ProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SiSistemasDEMOModelStoreContainer">
+    <EntitySet Name="Precios" EntityType="Self.Precios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Precios_Productos_PreciosProductosId" Association="Self.FK_Precios_Productos_PreciosProductosId">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Precios" EntitySet="Precios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

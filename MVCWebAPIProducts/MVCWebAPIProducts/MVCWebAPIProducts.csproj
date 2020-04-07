@@ -378,6 +378,16 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVCWebAPIProducts.Entities\MVCWebAPIProducts.Entities.csproj">
+      <Project>{C79B62A3-F225-47EA-8C6F-14E46E05FF05}</Project>
+      <Name>MVCWebAPIProducts.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVCWebAPIProducts.Services\MVCWebAPIProducts.Services.csproj">
+      <Project>{0DF8A78B-ACD1-4A3A-96C3-5483568A647C}</Project>
+      <Name>MVCWebAPIProducts.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

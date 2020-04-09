@@ -56,7 +56,7 @@ namespace MVCWebAPIProducts.Controllers
         ResponsePaginationMetaDataDTO paginationMetadata = new ResponsePaginationMetaDataDTO();
         allItemSelected = service.GetProductosPaginationSearchOrderBy(
                                                         requestPageDTO,
-                                                        ref paginationMetadata //,     orderBy
+                                                        ref paginationMetadata 
                                                         );
 
         HttpContext.Current.Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(paginationMetadata));

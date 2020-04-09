@@ -43,10 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DTOs\RequestDto\RequestEmailDTO.cs" />
     <Compile Include="DTOs\RequestDto\RequestPageDTO.cs" />
     <Compile Include="DTOs\ResponseDto\ResponsePaginationMetaDataDTO.cs" />
     <Compile Include="DTOs\ResponseDto\ResponsePriceDTO.cs" />
     <Compile Include="DTOs\ResponseDto\ResponseProductDTO.cs" />
+    <Compile Include="Model\EmailModel.cs" />
     <Compile Include="Model\ModelMProductProject.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

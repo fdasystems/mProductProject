@@ -1,5 +1,5 @@
-using MVCWebAPIProducts.Interfaces;
-using MVCWebAPIProducts.Models;
+using MVCWebAPIProducts.Entities.DTOs.RequestDto;
+using MVCWebAPIProducts.Services.Interfaces;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -8,24 +8,20 @@ using System.Web.Http.Cors;
 
 namespace MVCWebAPIProducts.Controllers
 {  //  /, http://fdasystems.github.io, 
-  [EnableCors(origins: "https://fdasystems.github.io,http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "X-Pagination")]
+  [EnableCors(origins: "https://fdasystems.github.io,http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "*")]
 
   public class ContactController : ApiController
   {
-    private IMailService _mailService;
+    private IMailServices _mailService;
 
-    public ContactController(IMailService mailService)
+    public ContactController(IMailServices mailService)
     {
       this._mailService = mailService;
     }
 
-
-
-
-    /* Original _mailService.SendMail - envio desde server SMPT*/
-      /* Nueva version _mailService.SendMailSengrid - envio desde  API  --puede cambiarse solo el metodo-- */
+    /* Original _mailService.SendMail - envio desde server SMPT*//* Nueva version _mailService.SendMailSengrid - envio desde  API  --puede cambiarse solo el metodo-- */
     [HttpPost]
-    public async Task<IHttpActionResult> SendMail([FromBody] EmailModel email) 
+    public async Task<IHttpActionResult> SendMail([FromBody] RequestEmailDTO requestMailDTO) 
     {
       if (!ModelState.IsValid)
       {
@@ -34,7 +30,7 @@ namespace MVCWebAPIProducts.Controllers
 
       try
       {
-        await _mailService.SendMailSendgrid(email);
+        await _mailService.SendMailSendgrid(requestMailDTO);
       }
       catch (Exception ex)
       {

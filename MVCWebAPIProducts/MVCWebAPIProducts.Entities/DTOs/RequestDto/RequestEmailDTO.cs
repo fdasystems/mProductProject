@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MVCWebAPIProducts.Models
+namespace MVCWebAPIProducts.Entities.DTOs.RequestDto
 {
-  public class EmailModel
+  public class RequestEmailDTO
   {
-  //  public string From { get; set; }
+    //Basic info to send mail
     public string To { get; set; }
     public string Subject { get; set; }
     public string Body { get; set; }
-
   }
 }

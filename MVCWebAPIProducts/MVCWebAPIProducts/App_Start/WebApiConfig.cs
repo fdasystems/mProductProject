@@ -1,10 +1,6 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.Practices.Unity;
-using MVCWebAPIProducts.Interfaces;
-using MVCWebAPIProducts.Models;
 using MVCWebAPIProducts.Services;
-using System;
-using System.Configuration;
+using MVCWebAPIProducts.Services.Interfaces;
 using System.Web.Http;
 
 namespace MVCWebAPIProducts
@@ -50,7 +46,7 @@ namespace MVCWebAPIProducts
 
       //mapping with Ioc Unity Inject Dependency
       var container = new UnityContainer();
-      container.RegisterType<IMailService, MailService>(new HierarchicalLifetimeManager());
+      container.RegisterType<IMailServices, MailServices>(new HierarchicalLifetimeManager());
       config.DependencyResolver = new UnityResolver(container);
 
 

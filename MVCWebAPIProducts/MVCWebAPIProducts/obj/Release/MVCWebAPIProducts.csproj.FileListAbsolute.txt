@@ -105,3 +105,10 @@ C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebA
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Text.Json.xml
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.Threading.Tasks.Extensions.xml
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\System.ValueTuple.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\MVCWebAPIProducts.Entities.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\MVCWebAPIProducts.Services.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\MVCWebAPIProducts.DataAccessLayer.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\MVCWebAPIProducts.Entities.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\MVCWebAPIProducts.Services.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\MVCWebAPIProducts.DataAccessLayer.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts\bin\MVCWebAPIProducts.DataAccessLayer.dll.config

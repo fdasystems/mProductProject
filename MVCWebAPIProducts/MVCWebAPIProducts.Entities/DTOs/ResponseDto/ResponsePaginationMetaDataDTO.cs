@@ -8,9 +8,9 @@ namespace MVCWebAPIProducts.Entities.DTOs.ResponseDto
 {
   public class ResponsePaginationMetaDataDTO
   {
-    public int TotalCount { get; set; }
-    public int TakeCount { get; set; }
-    public int CurrentPage { get; set; }
-    public int TotalPages { get; set; }
+    public int totalCount { get; set; }
+    public int takeCount { get; set; }
+    public int currentPage { get; set; }
+    public int totalPages { get; set; }
   }
 }

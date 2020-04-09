@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SiSistemasDEMOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Precios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FAlta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FBaja" Type="DateTime" Precision="0" />
+    <Property Name="ProductoId" Type="Int32" Nullable="false" />
+    <Property Name="Utilidad" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PrecioVenta" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Tarjeta" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK_Precios_Productos_PreciosProductosId" FromRole="Precios" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FAlta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FBaja" Type="DateTime" Precision="0" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Codigo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RutaImagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Precios" Relationship="Self.FK_Precios_Productos_PreciosProductosId" FromRole="Productos" ToRole="Precios" />
+  </EntityType>
+  <Association Name="FK_Precios_Productos_PreciosProductosId">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+    <End Role="Precios" Type="Self.Precios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Precios">
+        <PropertyRef Name="ProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SiSistemasDEMOEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Precios" EntityType="Self.Precios" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" />
+    <AssociationSet Name="FK_Precios_Productos_PreciosProductosId" Association="Self.FK_Precios_Productos_PreciosProductosId">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Precios" EntitySet="Precios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

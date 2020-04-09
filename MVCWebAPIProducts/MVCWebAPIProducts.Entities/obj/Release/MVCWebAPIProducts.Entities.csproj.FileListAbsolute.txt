@@ -1,0 +1,6 @@
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\bin\Release\MVCWebAPIProducts.Entities.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\bin\Release\MVCWebAPIProducts.Entities.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\obj\Release\MVCWebAPIProducts.Entities.csprojAssemblyReference.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\obj\Release\MVCWebAPIProducts.Entities.csproj.CoreCompileInputs.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\obj\Release\MVCWebAPIProducts.Entities.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\obj\Release\MVCWebAPIProducts.Entities.pdb

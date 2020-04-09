@@ -1,0 +1,14 @@
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Release\MVCWebAPIProducts.DataAccessLayer.dll.config
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Release\MVCWebAPIProducts.DataAccessLayer.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Release\MVCWebAPIProducts.DataAccessLayer.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Release\EntityFramework.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Release\MVCWebAPIProducts.Entities.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Release\MVCWebAPIProducts.Entities.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Release\EntityFramework.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Release\MVCWebAPIProducts.DataAccessLayer.csprojAssemblyReference.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Release\MVCWebAPIProducts.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Release\MVCWebAPIProducts.DataAccessLayer.csproj.CopyComplete
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Release\MVCWebAPIProducts.DataAccessLayer.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.DataAccessLayer\obj\Release\MVCWebAPIProducts.DataAccessLayer.pdb

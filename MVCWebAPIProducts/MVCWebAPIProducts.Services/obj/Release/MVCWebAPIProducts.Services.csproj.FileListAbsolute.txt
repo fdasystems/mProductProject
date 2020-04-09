@@ -1,0 +1,14 @@
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Release\MVCWebAPIProducts.Services.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Release\MVCWebAPIProducts.Services.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Release\MVCWebAPIProducts.DataAccessLayer.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Release\MVCWebAPIProducts.Entities.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Release\EntityFramework.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Release\MVCWebAPIProducts.DataAccessLayer.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Release\MVCWebAPIProducts.DataAccessLayer.dll.config
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Release\MVCWebAPIProducts.Entities.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\bin\Release\EntityFramework.xml
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Release\MVCWebAPIProducts.Services.csprojAssemblyReference.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Release\MVCWebAPIProducts.Services.csproj.CoreCompileInputs.cache
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Release\MVCWebAPIProducts.Services.csproj.CopyComplete
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Release\MVCWebAPIProducts.Services.dll
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Services\obj\Release\MVCWebAPIProducts.Services.pdb

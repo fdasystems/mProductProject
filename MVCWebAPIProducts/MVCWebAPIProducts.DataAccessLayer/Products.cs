@@ -2,6 +2,7 @@ using MVCWebAPIProducts.DataAccessLayer.Base;
 using MVCWebAPIProducts.Entities.DTOs.RequestDto;
 using MVCWebAPIProducts.Entities.Model;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
@@ -54,6 +55,17 @@ namespace MVCWebAPIProducts.DataAccessLayer
 
       allItemCount = PaginateResults(ref result, reqPage);//Aca podes recibir el SORT
       return result;
+    }
+
+
+    public List<Productos> GetProductsWithPaginationDynamicList(RequestPageDTO reqPage, ref int allItemCount)
+    {
+      var result = (reqPage.searchTerms != null && reqPage.searchTerms.Length > 0) ?
+                  db.Productos.Include(x => x.Precios).Where(x => x.Codigo.Contains(reqPage.searchTerms)) :
+                  db.Productos.Include(x => x.Precios);
+
+      allItemCount = PaginateResults(ref result, reqPage);//Aca podes recibir el SORT
+      return result.ToList();
     }
 
     public IQueryable<Productos> GetProductsWithSearchTermPagination(RequestPageDTO reqPage, string searchTerms, string orderBy, ref int allItemCount)

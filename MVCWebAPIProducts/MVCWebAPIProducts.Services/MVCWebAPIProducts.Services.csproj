@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ConstantsServices\Constants.cs" />
     <Compile Include="Interfaces\IMailServices.cs" />
+    <Compile Include="Interfaces\IProductServices.cs" />
     <Compile Include="MailServices.cs" />
     <Compile Include="ProductServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

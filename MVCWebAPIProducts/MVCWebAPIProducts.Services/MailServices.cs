@@ -23,7 +23,7 @@ namespace MVCWebAPIProducts.Services
     private string _userEmail = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpUser);
     private string _userPassword = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpPassword);
     private string _apiKey = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SendgridKey);
-
+    private string _fromAlias = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.AliasFrom);
 
     public async Task SendMail(RequestEmailDTO requestMailDTO)
     {
@@ -41,10 +41,10 @@ namespace MVCWebAPIProducts.Services
         mailMessage.Subject = email.Subject;
         mailMessage.Body = email.Body;
         mailMessage.IsBodyHtml = false; //false to security or true to design
-        SmtpClient smtpClient = new SmtpClient(_smtpClient);//smtp.gmail.com
-        smtpClient.UseDefaultCredentials = true; //bool.Parse(_useDefaultCredentials); //true;
-        smtpClient.Port = int.Parse(_smtpPort);//587
-        smtpClient.EnableSsl = bool.Parse(_enableSsl);//true
+        SmtpClient smtpClient = new SmtpClient(_smtpClient);
+        smtpClient.UseDefaultCredentials = true; 
+        smtpClient.Port = int.Parse(_smtpPort);
+        smtpClient.EnableSsl = bool.Parse(_enableSsl);
         smtpClient.Credentials = new System.Net.NetworkCredential(_userEmail, _userPassword);//u+p
 
         configs = smtpClient.UseDefaultCredentials.ToString() + smtpClient.Port.ToString() + smtpClient.EnableSsl.ToString() + smtpClient.Credentials.ToString();
@@ -64,11 +64,13 @@ namespace MVCWebAPIProducts.Services
       string configs = string.Empty;
       try
       {
-        EmailModel email = new EmailModel(_userEmail, Constants.ApiContactConfigs.AliasFrom);
-        email.To = requestMailDTO.To;
-        email.Subject = requestMailDTO.Subject;
-        email.Body = requestMailDTO.Body;
-        
+        EmailModel email = new EmailModel(_userEmail, _fromAlias)
+        {
+          To = requestMailDTO.To,
+          Subject = requestMailDTO.Subject,
+          Body = requestMailDTO.Body
+        };
+
         configs = "firstsCharsApiKeySendrig" + _apiKey.Substring(0, 5) + "||_apiKey.Length" + _apiKey.Length + "|| From: " + _userEmail;
         var client = new SendGridClient(_apiKey);
         EmailAddress from = new EmailAddress(email.From, email.AliasFrom);
@@ -95,8 +97,11 @@ namespace MVCWebAPIProducts.Services
     private string CaptureErrorDetails(string configs, Exception ex)
     {
       string message = ex.InnerException != null ? ex.InnerException.ToString() : string.Empty;
-      message += "**CONFIGS**" + configs + "***INTERN_VALUES_IF_SMTP***" + _smtpClient + _smtpPort + _useDefaultCredentials + _enableSsl + _userEmail;
-      message += "||ex.Message=>" + ex.Message.ToString() + "||ex.StackTrace=>" + ex.StackTrace.ToString();
+      message += Constants.ApiErrorMessages.ExMessageConfigLabel + configs
+                + Constants.ApiErrorMessages.ExMessageSmtpLabel + _smtpClient + _smtpPort
+                + _useDefaultCredentials + _enableSsl + _userEmail;
+      message += Constants.ApiErrorMessages.ExMessageLabel + ex.Message.ToString()
+                + Constants.ApiErrorMessages.ExStackLabel + ex.StackTrace.ToString();
       return message;
     }
 

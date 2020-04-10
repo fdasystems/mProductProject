@@ -1,3 +1,4 @@
+using MVCWebAPIProducts.ConstantsWebApi;
 using MVCWebAPIProducts.Entities.DTOs.RequestDto;
 using MVCWebAPIProducts.Services.Interfaces;
 using System;
@@ -7,9 +8,9 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace MVCWebAPIProducts.Controllers
-{  //  /, http://fdasystems.github.io, 
-  [EnableCors(origins: "https://fdasystems.github.io,http://localhost:4200", headers: "*", methods: "*", exposedHeaders: "*")]
-
+{  
+  [EnableCors(origins: Constants.Configs.enableCorsUrls, headers: Constants.Configs.enableCorsHeaders,
+    methods: Constants.Configs.enableCorsMethods, exposedHeaders: Constants.Configs.enableCorsExposedHeaders)]
   public class ContactController : ApiController
   {
     private IMailServices _mailService;
@@ -37,7 +38,7 @@ namespace MVCWebAPIProducts.Controllers
         return Content(HttpStatusCode.InternalServerError, ex.Message);
       }
 
-      return Ok("Succesfully");
+      return Ok(Constants.SuccessMessages.Success);
     }
 
   

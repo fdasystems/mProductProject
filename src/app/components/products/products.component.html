@@ -54,7 +54,12 @@ style="width:500px !important; justify-content: center !important;"
         <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.Id}} </mat-cell>
     </ng-container>
-      
+
+    <!-- RutaImagen Column-->
+    <ng-container matColumnDef="RutaImagen">
+        <mat-header-cell *matHeaderCellDef> Foto </mat-header-cell>
+        <mat-cell *matCellDef="let element">  <img src="{{element.RutaImagen}}"  height="70" width="95" >  </mat-cell>
+    </ng-container>      
 
     <!-- Codigo Column -->
     <ng-container matColumnDef="Codigo">
@@ -70,16 +75,11 @@ style="width:500px !important; justify-content: center !important;"
     </ng-container>
 
     <!-- Descripcion Column -->
-    <ng-container matColumnDef="Descripcion">
+    <ng-container matColumnDef="Descripcion" >
         <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Descripcion}} </mat-cell>
+        <mat-cell *matCellDef="let element"  > {{element.Descripcion}} </mat-cell>
     </ng-container>
 
-    <!-- RutaImagen Column-->
-    <ng-container matColumnDef="RutaImagen">
-        <mat-header-cell *matHeaderCellDef> Foto </mat-header-cell>
-        <mat-cell *matCellDef="let element">  <img src="{{element.RutaImagen}}"  height="70" width="95" >  </mat-cell>
-    </ng-container>
 
     <!-- RutaImagen Column-->
     <ng-container matColumnDef="PrecioVenta">

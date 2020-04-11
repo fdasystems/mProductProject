@@ -1,3 +1,6 @@
 mat-card{
     margin-top:2rem;
 }
+.mat-column-Descripcion {
+    flex: 0 0 50%;
+  }

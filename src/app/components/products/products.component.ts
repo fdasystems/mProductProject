@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   loadOK: boolean =false;
   products: Product[]=[];
   listData: MatTableDataSource<Product>;
-  displayedColumns: string[] = ["Codigo", "Nombre", "Descripcion", "RutaImagen", "PrecioVenta", "urlEmail"]; //'Id', "Codigo", "Nombre", "Descripcion", "RutaImagen", "PrecioVenta"];"urlEmail"
+  displayedColumns: string[] = ["RutaImagen","Codigo", "Descripcion",  "PrecioVenta", "urlEmail"]; //'Id', "Codigo", "Nombre", "Descripcion", "RutaImagen", "PrecioVenta"];"urlEmail"
   @ViewChild(MatPaginator) paginator1: MatPaginator;
   searchKey: string;
   eventLocal : PageEvent;
@@ -135,6 +135,7 @@ export class ProductsComponent implements OnInit {
   pageChanged(event: PageEvent) {
     console.log(event);
     this.paginationService.change(event);
+    this.listData=null;
     //ojo hay que ver si entrar por por getFilter o getAll 
     if (this.searchKey && this.searchKey.length>0)
     {

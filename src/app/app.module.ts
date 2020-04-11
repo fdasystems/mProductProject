@@ -17,7 +17,7 @@ import { PaginationService } from './services/pagination.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { ContactComponent } from './shared/components/contact/contact.component'; 
-
+import { httpInterceptorProviders } from './http-interceptors/index';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { ContactComponent } from './shared/components/contact/contact.component'
     HttpClientModule,
     FormsModule, ReactiveFormsModule 
   ],
-  providers: [PaginationService, {provide: MatPaginatorIntl, useValue: CustomPaginator()}],
+  providers: [PaginationService, {provide: MatPaginatorIntl, useValue: CustomPaginator()}, httpInterceptorProviders],
   bootstrap: [AppComponent],
   entryComponents: [ContactComponent]
 })

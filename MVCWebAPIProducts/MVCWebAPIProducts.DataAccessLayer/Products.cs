@@ -61,7 +61,8 @@ namespace MVCWebAPIProducts.DataAccessLayer
     public List<Productos> GetProductsWithPaginationDynamicList(RequestPageDTO reqPage, ref int allItemCount)
     {
       var result = (reqPage.searchTerms != null && reqPage.searchTerms.Length > 0) ?
-                  db.Productos.Include(x => x.Precios).Where(x => x.Codigo.Contains(reqPage.searchTerms)) :
+                  db.Productos.Include(x => x.Precios).Where(x => x.Codigo.Contains(reqPage.searchTerms)
+                                                               || x.Descripcion.Contains(reqPage.searchTerms) ) :
                   db.Productos.Include(x => x.Precios);
 
       allItemCount = PaginateResults(ref result, reqPage);//Aca podes recibir el SORT
@@ -79,7 +80,7 @@ namespace MVCWebAPIProducts.DataAccessLayer
     {
       int allItemCount = result.Count();
       result = result.OrderBy(x => x.Id).Skip((reqPage.numberPage - 1) * reqPage.takeCount) // then req.ob =>string orderBy
-                   .Take(reqPage.takeCount);
+                     .Take(reqPage.takeCount);
       return allItemCount;
     }
 

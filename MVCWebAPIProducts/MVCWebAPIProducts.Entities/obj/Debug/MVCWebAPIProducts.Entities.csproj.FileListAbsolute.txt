@@ -3,3 +3,4 @@ C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebA
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\bin\Debug\MVCWebAPIProducts.Entities.pdb
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\obj\Debug\MVCWebAPIProducts.Entities.dll
 C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\obj\Debug\MVCWebAPIProducts.Entities.pdb
+C:\FDA\_angular\_repos\mProductProject\mProductProject\MVCWebAPIProducts\MVCWebAPIProducts.Entities\obj\Debug\MVCWebAPIProducts.Entities.csprojAssemblyReference.cache

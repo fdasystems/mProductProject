@@ -25,6 +25,7 @@ export class ProductsComponent implements OnInit {
   eventLocal : PageEvent;
   SentStatusOk:  boolean =false;
   SentStatusBad: boolean =false;
+  enableRefresh: boolean =false;
 
 
   
@@ -149,13 +150,14 @@ export class ProductsComponent implements OnInit {
   /* Call with Event */
   switchPage(event: PageEvent) {
     this.paginationService.change(event);
-    //ojo hay que ver si entrar por por getAll o getFilter
+    this.listData=null;//ojo hay que ver si entrar por por getAll o getFilter
     this.getAllProducts('switchPage');
   }
 
   //search with searchKey
   searching(){
-        // Clean pagination classic, change to normal pagination
+        this.enableRefresh=true;// Clean pagination classic, change to normal pagination
+        this.listData=null;
         this.setNewPaginationForSearch(0, 0); //0 is the first page, other 0 is Not Required in first call = (overwrite in response)
         this.getFilteredData('searching-1st-time');
   }
@@ -175,7 +177,8 @@ export class ProductsComponent implements OnInit {
   //refreshing clear data searcher
   refreshing(){
     this.searchKey="";
-      //clear el pagination (te va a servir despues para busquedas) se tiene que limpiar porque puede tener paginacion de busqueda
+    this.enableRefresh=false;
+    this.listData=null;  //clear el pagination (te va a servir despues para busquedas) se tiene que limpiar porque puede tener paginacion de busqueda
     this.setNewPaginationForSearch(0, 0); 
     this.getAllProducts('refreshing');
   }

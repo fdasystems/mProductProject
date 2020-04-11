@@ -28,7 +28,7 @@ style="width:500px !important; justify-content: center !important;"
                     <button mat-raised-button matSuffix (click)="searching()" [disabled]="!searchKey" > <mat-icon>search</mat-icon> Buscar </button>
                 </mat-form-field>
 
-                <button mat-button matSuffix mat-icon-button aria-label="Limpiar" (click)="refreshing()"><mat-icon>loop</mat-icon> </button>
+                <button mat-button matSuffix mat-icon-button aria-label="Limpiar" (click)="refreshing()" [disabled]="!enableRefresh"><mat-icon>loop</mat-icon> </button>
     </mat-card-content>
 </mat-card>
 <!--Fin de busqueda-->

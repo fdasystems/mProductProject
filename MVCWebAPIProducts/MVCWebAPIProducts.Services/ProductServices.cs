@@ -24,7 +24,6 @@ namespace MVCWebAPIProducts.Services
     {
       Products daProduct = new Products();
       int allItemCount = 0;
-      // IQueryable<Productos> allItemSelected = null;
       List<Productos> allItemSelected = new List<Productos>();
       //si vengo por busqueda el totalItemsCount cambia respecto del Count Gral
       try

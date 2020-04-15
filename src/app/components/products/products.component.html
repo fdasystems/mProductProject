@@ -23,7 +23,7 @@ style="width:500px !important; justify-content: center !important;"
     <mat-card-title>   </mat-card-title>        
     <mat-card-subtitle>    </mat-card-subtitle>
     <mat-card-content> 
-                <mat-form-field class="search-form-field"  [style.width.%]="90" style="margin-left: 2rem !important;"  > 
+                <mat-form-field class="search-form-field"  [style.width.%]="88" style="margin-left: 2rem !important;"  > 
                     <input matInput [(ngModel)]="searchKey" placeholder="Buscar..." autocomplete="off" name="searchKey" >  
                     <button mat-raised-button matSuffix (click)="searching()" [disabled]="!searchKey" > <mat-icon>search</mat-icon> Buscar </button>
                 </mat-form-field>
@@ -74,29 +74,21 @@ style="width:500px !important; justify-content: center !important;"
         <mat-cell *matCellDef="let element"> {{element.Nombre}} </mat-cell>
     </ng-container>
 
+   
+
     <!-- Descripcion Column -->
     <ng-container matColumnDef="Descripcion" >
         <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
         <mat-cell *matCellDef="let element"  > {{element.Descripcion}} </mat-cell>
     </ng-container>
 
-
+    
     <!-- RutaImagen Column-->
     <ng-container matColumnDef="PrecioVenta">
-        <mat-header-cell *matHeaderCellDef> PrecioVenta </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
         <mat-cell *matCellDef="let element"> $ {{element.Precios["0"].PrecioVenta}} </mat-cell>
     </ng-container>
 
-    <!-- URL-EMAIL Column
-    <ng-container matColumnDef="actionsColumn">
-        <mat-header-cell *matHeaderCellDef>
-            <button >Create new</button>
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-            <button >Edit</button>
-            <button >Cancel</button>
-        </mat-cell>
-    </ng-container>-->
     
 <!-- Columna de contacto --refrescar siempre 
     <ng-container matColumnDef="urlEmail">
@@ -134,16 +126,15 @@ style="width:500px !important; justify-content: center !important;"
         </mat-footer-cell>
     </ng-container>   
 
-    <!-- Codigo Column 
-    <ng-container matColumnDef="Codigo">
-        <th mat-header-cell *matHeaderCellDef> Codigo </th>
-        <td mat-cell *matCellDef="let element"> {{element.Codigo}} </td>
-    </ng-container>
-  -->    
+    <mat-card style="justify-content: center !important;" >
+        <mat-card-title>   </mat-card-title>        
+        <mat-card-subtitle>    </mat-card-subtitle>
+        <mat-card-content>     </mat-card-content>   
+    </mat-card>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':(listData!=null  ) }" ></mat-footer-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> 
+      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':(listData!=null) }" ></mat-footer-row>
       <mat-footer-row *matFooterRowDef="['nodata']"  [ngClass]="{'hide':((!(listData!=null && listData.data.length==0)) )}" ></mat-footer-row>
                                                                 <!--|| listData==undefined  && (!listData==undefined) || !loadOK || listData!=null || listData!=undefined -->
   </mat-table>

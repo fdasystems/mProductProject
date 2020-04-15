@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://localhost:61504/'
+  api_url: 'http://localhost:61504/',
+  contactTo: 'fdasystems@gmail.com'
 };
 
 /*

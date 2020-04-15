@@ -1,6 +1,17 @@
 mat-card{
     margin-top:2rem;
 }
+/**/
 .mat-column-Descripcion {
-    flex: 0 0 50%;
+    flex: 0 0 38%;
+  }
+
+  .mat-column-Codigo {
+    flex: 0 0 12%;
+  }
+  .mat-column-PrecioVenta {
+    flex: 0 0 18%;
+  }  
+  .mat-column-RutaImagen {
+    flex: 0 0 10%;
   }

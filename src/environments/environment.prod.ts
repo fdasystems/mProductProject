@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  api_url: 'https://webapimpp.azurewebsites.net/'
+  api_url: 'https://webapimpp.azurewebsites.net/',
+  contactTo: 'fdasystems@gmail.com'
 };

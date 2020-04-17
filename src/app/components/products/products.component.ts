@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   loadOK: boolean =false;
   products: Product[]=[];
   listData: MatTableDataSource<Product>;
-  displayedColumns: string[] = ["RutaImagen","Codigo", "Descripcion",  "PrecioVenta", "urlEmail"]; //'Id', "Codigo", "Nombre", "Descripcion", "RutaImagen", "PrecioVenta"];"urlEmail"
+  displayedColumns: string[] = ["RutaImagen", "Descripcion"]; //'Id',"urlEmail" "Codigo", "PrecioVenta",     "Nombre", "Descripcion", "RutaImagen", "PrecioVenta"];"urlEmail"
   @ViewChild(MatPaginator) paginator1: MatPaginator;
   searchKey: string;
   eventLocal : PageEvent;

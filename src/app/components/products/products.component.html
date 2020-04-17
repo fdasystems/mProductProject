@@ -56,14 +56,20 @@ style="width:500px !important; justify-content: center !important;"
     </ng-container>
 
     <!-- RutaImagen Column-->
-    <ng-container matColumnDef="RutaImagen">
-        <mat-header-cell *matHeaderCellDef> Foto </mat-header-cell>
-        <mat-cell *matCellDef="let element">  <img src="{{element.RutaImagen}}"  height="70" width="95" >  </mat-cell>
+    <ng-container matColumnDef="RutaImagen"   style="justify-content: center !important;">
+        <mat-header-cell *matHeaderCellDef> Foto - Precio </mat-header-cell>
+        <mat-cell *matCellDef="let element">  
+        
+            <table>
+                <tr><td> <img src="{{element.RutaImagen}}" height="80" width="70" > </td></tr>
+                <tr><td> $ {{element.Precios["0"].PrecioVenta}} </td></tr>
+            </table>
+        </mat-cell>
     </ng-container>      
 
     <!-- Codigo Column -->
     <ng-container matColumnDef="Codigo">
-        <mat-header-cell *matHeaderCellDef> Codigo </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Código </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.Codigo}} </mat-cell>
     </ng-container>
 
@@ -78,15 +84,33 @@ style="width:500px !important; justify-content: center !important;"
 
     <!-- Descripcion Column -->
     <ng-container matColumnDef="Descripcion" >
-        <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
-        <mat-cell *matCellDef="let element"  > {{element.Descripcion}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef>Código - Descripción </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            
+            <table>
+                <tr><td> {{element.Codigo}} - {{element.Descripcion}} </td></tr>
+                <tr><td>  <button mat-button  mat-raised-button    color="primary"    (click)="openDialog(element)">¡Lo Quiero!</button> </td></tr>
+            </table>
+        
+        
+        </mat-cell>
     </ng-container>
 
     
     <!-- RutaImagen Column-->
     <ng-container matColumnDef="PrecioVenta">
         <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
-        <mat-cell *matCellDef="let element"> $ {{element.Precios["0"].PrecioVenta}} </mat-cell>
+        <mat-cell *matCellDef="let element">
+            
+            
+             
+           <table>
+               <tr><td>$ {{element.Precios["0"].PrecioVenta}}</td></tr>
+               <tr><td><button mat-button  mat-raised-button    color="primary"    (click)="openDialog(element)">¡Lo Quiero!</button> </td></tr>
+           </table>
+       
+       
+        </mat-cell>
     </ng-container>
 
     
@@ -102,12 +126,12 @@ style="width:500px !important; justify-content: center !important;"
     </ng-container>  -->
 
 
-<!-- version de contacto -->  
+<!-- version de contacto
 <ng-container matColumnDef="urlEmail">
     <mat-header-cell *matHeaderCellDef> Contacto </mat-header-cell>
     <mat-cell *matCellDef="let element"> <button mat-button  mat-raised-button    color="primary"    (click)="openDialog(element)">¡Lo Quiero!</button> </mat-cell>
 </ng-container>
- 
+  -->  
 
 
 

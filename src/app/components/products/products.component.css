@@ -1,17 +1,17 @@
 mat-card{
     margin-top:2rem;
 }
-/**/
+/* Tres valores: flex-grow | flex-shrink | flex-basis */
 .mat-column-Descripcion {
-    flex: 0 0 38%;
+    flex: 0 2 72%; /* auto   66%;*/
   }
 
   .mat-column-Codigo {
     flex: 0 0 12%;
   }
   .mat-column-PrecioVenta {
-    flex: 0 0 18%;
+    flex: 0 0 14%;
   }  
   .mat-column-RutaImagen {
-    flex: 0 0 10%;
+    flex: 1 1 auto; /* 27%;*/
   }

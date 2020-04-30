@@ -17,7 +17,7 @@ namespace MVCWebAPIProducts.ConstantsWebApi
     }
     public static class Configs
     {
-      public const string enableCorsUrls = "https://fdasystems.github.io,http://www.sisistemas.com.ar"; //http://localhost:4200,
+      public const string enableCorsUrls = "https://fdasystems.github.io,http://www.sisistemas.com.ar,http://localhost:4200"; //http://localhost:4200,
       public const string enableCorsHeaders = "*";
       public const string enableCorsMethods = "*";
       public const string enableCorsExposedHeaders = "X-Pagination,X-Message";  //*

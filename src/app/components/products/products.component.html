@@ -20,10 +20,9 @@ style="width:500px !important; justify-content: center !important;"
 
 <!--Inicio de busqueda-->
 <mat-card style="justify-content: center !important;" >
-    <mat-card-title>   </mat-card-title>        
-    <mat-card-subtitle>    </mat-card-subtitle>
-    <mat-card-content> 
-                <mat-form-field class="search-form-field"  [style.width.%]="88" style="margin-left: 2rem !important;"  > 
+
+    <mat-card-content   style="justify-content: center !important;"  > 
+                <mat-form-field class="search-form-field"  [style.width.%]="82" style="justify-content: center  !important;"  > 
                     <input matInput [(ngModel)]="searchKey" placeholder="Buscar..." autocomplete="off" name="searchKey" >  
                     <button mat-raised-button matSuffix (click)="searching()" [disabled]="!searchKey" > <mat-icon>search</mat-icon> Buscar </button>
                 </mat-form-field>

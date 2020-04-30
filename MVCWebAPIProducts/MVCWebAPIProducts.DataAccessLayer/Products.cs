@@ -64,7 +64,7 @@ namespace MVCWebAPIProducts.DataAccessLayer
                   db.Productos.Include(x => x.Precios).Where(x => x.Codigo.Contains(reqPage.searchTerms)
                                                                || x.Descripcion.Contains(reqPage.searchTerms) ) :
                   db.Productos.Include(x => x.Precios);
-
+      result = result.Where(x => x.FBaja == null);
       allItemCount = PaginateResults(ref result, reqPage);//Aca podes recibir el SORT
       return result.ToList();
     }

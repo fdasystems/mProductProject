@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { ContactComponent } from './shared/components/contact/contact.component'; 
 import { httpInterceptorProviders } from './http-interceptors/index';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,11 @@ import { httpInterceptorProviders } from './http-interceptors/index';
     HttpClientModule,
     FormsModule, ReactiveFormsModule 
   ],
-  providers: [PaginationService, {provide: MatPaginatorIntl, useValue: CustomPaginator()}, httpInterceptorProviders],
+  providers: [PaginationService, 
+              {provide: MatPaginatorIntl, useValue: CustomPaginator()}, 
+              httpInterceptorProviders, 
+              {provide: LocationStrategy, useClass: HashLocationStrategy}
+             ],
   bootstrap: [AppComponent],
   entryComponents: [ContactComponent]
 })

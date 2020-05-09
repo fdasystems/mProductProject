@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="SiSistemasWebEntities-Web.config Connection String" description="SiSistemasWebEntities Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/Models.ModelDBSistemasWeb.csdl|res://*/Models.ModelDBSistemasWeb.ssdl|res://*/Models.ModelDBSistemasWeb.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=SiSistemasDEMO;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\FDA\\_angular\\_repos\\mProductProject\\mProductProject\\MVCWebAPIProducts\\MVCWebAPIProducts\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SiSistemasWebEntities']/@connectionString" />
-  </parameter>
-</parameters>

@@ -29,7 +29,7 @@ namespace MVCWebAPIProducts.Services
       try
       {
          allItemSelected = daProduct.GetProductsWithPaginationDynamicList(requestPage, ref allItemCount);
-        //deberia armar ResponsePaginationMetaDataDTO y devolver p/ agregar en la cabecera de paginacion (solo falta calc el "pages")
+        //deberia armar ResponsePaginationMetaDataDTO y devolver p/ agregar en la cabecera de paginacion 
         paginationMetadata = setPaginationMetaData(requestPage, allItemCount);
       }
       catch (Exception ex)

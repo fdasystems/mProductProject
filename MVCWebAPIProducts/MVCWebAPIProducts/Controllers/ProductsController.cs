@@ -53,7 +53,7 @@ namespace MVCWebAPIProducts.Controllers
       }
       catch (Exception ex)
       {
-        HttpContext.Current.Response.Headers.Add(Constants.Configs.enableCorsExposedHeadersXMessage, ex.Message.Substring(0, 250));
+        HttpContext.Current.Response.Headers.Add(Constants.Configs.enableCorsExposedHeadersXMessage, ex.Message.Substring(0, ex.Message.Length > 250 ? 250 : ex.Message.Length));
         throw new Exception(ex.Message);
       }
 

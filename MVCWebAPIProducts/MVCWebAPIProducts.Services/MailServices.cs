@@ -1,29 +1,56 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using MVCWebAPIProducts.Entities.DTOs.RequestDto;
 using MVCWebAPIProducts.Entities.Model;
 using MVCWebAPIProducts.Services.ConstantsServices;
 using MVCWebAPIProducts.Services.Interfaces;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using System;
+using System.Configuration;
+using System.Net;
+using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace MVCWebAPIProducts.Services
 {
   public class MailServices : IMailServices
   {
-    private string _smtpClient = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpClient); 
-    private string _smtpPort = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpPort);
-    private string _enableSsl = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpEnableSSL);
-    private string _useDefaultCredentials = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpDefaultCredentials);
-    private string _userEmail = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpUser);
-    private string _userPassword = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpPassword);
-    private string _apiKey = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SendgridKey);
-    private string _fromAlias = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.AliasFrom);
+    private string _smtpClient = string.Empty;
+    private string _smtpPort = string.Empty;
+    private string _enableSsl = string.Empty;
+    private string _useDefaultCredentials = string.Empty;
+    private string _userEmail = string.Empty;
+    private string _userPassword = string.Empty;
+    private string _apiKey = string.Empty;
+    private string _fromAlias = string.Empty;
+
+    public MailServices()
+    {
+      bool getFromEnviroment = ConfigurationManager.AppSettings[Constants.ApiContactConfigs.GetFromEnviroment] == null ? false :
+                            bool.Parse(ConfigurationManager.AppSettings[Constants.ApiContactConfigs.GetFromEnviroment]);
+      //check enviroment or webconfig
+      if (getFromEnviroment)
+      {
+        _smtpClient = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpClient);
+        _smtpPort = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpPort);
+        _enableSsl = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpEnableSSL);
+        _useDefaultCredentials = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpDefaultCredentials);
+        _userEmail = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpUser);
+        _userPassword = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SmtpPassword);
+        _apiKey = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.SendgridKey);
+        _fromAlias = Environment.GetEnvironmentVariable(Constants.ApiContactConfigs.AliasFrom);
+      }
+      else
+      {
+        _smtpClient = ConfigurationManager.AppSettings[Constants.ApiContactConfigs.SmtpClient];
+        _smtpPort = ConfigurationManager.AppSettings[Constants.ApiContactConfigs.SmtpPort];
+        _enableSsl = ConfigurationManager.AppSettings[Constants.ApiContactConfigs.SmtpEnableSSL];
+        _useDefaultCredentials = ConfigurationManager.AppSettings[Constants.ApiContactConfigs.SmtpDefaultCredentials];
+        _userEmail = ConfigurationManager.AppSettings[Constants.ApiContactConfigs.SmtpUser];
+        _userPassword = ConfigurationManager.AppSettings[Constants.ApiContactConfigs.SmtpPassword];
+        _apiKey = ConfigurationManager.AppSettings[Constants.ApiContactConfigs.SendgridKey];
+        _fromAlias = ConfigurationManager.AppSettings[Constants.ApiContactConfigs.AliasFrom];
+      }
+    }
 
     public async Task SendMail(RequestEmailDTO requestMailDTO)
     {
@@ -37,12 +64,12 @@ namespace MVCWebAPIProducts.Services
         email.Body = requestMailDTO.Body;
         MailMessage mailMessage = new MailMessage();
         mailMessage.To.Add(email.To);
-        mailMessage.From = new MailAddress(email.From, email.AliasFrom); 
+        mailMessage.From = new MailAddress(email.From, email.AliasFrom);
         mailMessage.Subject = email.Subject;
         mailMessage.Body = email.Body;
         mailMessage.IsBodyHtml = false; //false to security or true to design
         SmtpClient smtpClient = new SmtpClient(_smtpClient);
-        smtpClient.UseDefaultCredentials = true; 
+        smtpClient.UseDefaultCredentials = true;
         smtpClient.Port = int.Parse(_smtpPort);
         smtpClient.EnableSsl = bool.Parse(_enableSsl);
         smtpClient.Credentials = new System.Net.NetworkCredential(_userEmail, _userPassword);//u+p

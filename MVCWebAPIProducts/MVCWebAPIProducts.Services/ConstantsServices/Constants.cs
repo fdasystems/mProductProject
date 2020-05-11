@@ -26,6 +26,7 @@ namespace MVCWebAPIProducts.Services.ConstantsServices
       public const string SmtpPassword = "API_SMTPPASSWORD";
       public const string SendgridKey = "API_SENDGRID_KEY";
       public const string AliasFrom = "API_SMTPUSERFROMALIAS"; //FDA SINCE API SENDGRID default change then when user pass details data
+      public const string GetFromEnviroment = "EnviromentVariablesConfig";
     }
 
 

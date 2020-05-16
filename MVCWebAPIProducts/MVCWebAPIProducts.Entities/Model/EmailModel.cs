@@ -15,7 +15,7 @@ namespace MVCWebAPIProducts.Entities.Model
     public string Subject { get; set; }
     public string Body { get; set; }
 
-    public EmailModel(string fromEmail, string aliasFromEmail = "FDA SINCE API")
+    public EmailModel(string fromEmail, string aliasFromEmail = "DESDE API")
     {
       this.From = fromEmail;
       this.AliasFrom = aliasFromEmail; 

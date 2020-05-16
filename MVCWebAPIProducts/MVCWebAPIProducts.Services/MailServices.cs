@@ -58,7 +58,7 @@ namespace MVCWebAPIProducts.Services
 
       try
       {
-        EmailModel email = new EmailModel(_userEmail);
+        EmailModel email = new EmailModel(_userEmail, _fromAlias);
         email.To = requestMailDTO.To;
         email.Subject = requestMailDTO.Subject;
         email.Body = requestMailDTO.Body;

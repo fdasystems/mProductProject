@@ -22,7 +22,7 @@ style="width:500px !important; justify-content: center !important;"
 <mat-card style="justify-content: center !important;" >
 
     <mat-card-content   style="justify-content: center !important;"  > 
-                <mat-form-field class="search-form-field"  [style.width.%]="82" style="justify-content: center  !important;"  > 
+                <mat-form-field class="search-form-field"  [style.width.%]="82"  style="justify-content: center  !important;"  > 
                     <input matInput [(ngModel)]="searchKey" placeholder="Buscar..." autocomplete="off" name="searchKey" >  
                     <button mat-raised-button matSuffix (click)="searching()" [disabled]="!searchKey" > <mat-icon>search</mat-icon> Buscar </button>
                 </mat-form-field>
@@ -82,7 +82,7 @@ style="width:500px !important; justify-content: center !important;"
    
 
     <!-- Descripcion Column -->
-    <ng-container matColumnDef="Descripcion" >
+    <ng-container matColumnDef="Descripcion"  >
         <mat-header-cell *matHeaderCellDef>Código - Descripción </mat-header-cell>
         <mat-cell *matCellDef="let element">
             

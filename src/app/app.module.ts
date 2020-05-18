@@ -15,7 +15,6 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomPaginator } from './CustomPaginatorConfiguration';
 import { PaginationService } from './services/pagination.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchComponent } from './components/search/search.component';
 import { ContactComponent } from './shared/components/contact/contact.component'; 
 import { httpInterceptorProviders } from './http-interceptors/index';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
@@ -23,7 +22,7 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,ToolbarComponent, DashboardComponent, FooterComponent, SearchComponent, ContactComponent  
+    ProductsComponent,ToolbarComponent, DashboardComponent, FooterComponent, ContactComponent  
   ],
   imports: [
     BrowserModule,
